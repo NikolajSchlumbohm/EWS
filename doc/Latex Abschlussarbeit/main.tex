@@ -157,21 +157,9 @@ Zwischen unseren Kategorien (Personen, Politik, Memes, Orte und Text) sowie ihre
 fallen bereits einige Kategorien als besonders prominent auf. Generell ist auffällig, dass 
 Kombinationen mit Text längere Betrachtungsdauer aufweisen als der Konterpart ohne Text (Abb. \ref{fig:katDauer}) 
 
-\begin{figure*}[ht]
-    \centering
-    \includegraphics[width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{figures/Bild2.png}
-    \caption{Die Kategorien mit der jeweiligen durchschnittlichen Betrachtungsdauern}\label{fig:katDauer}
-\end{figure*}
-
 Diese Tatsache hing nach näherer Betrachtung allerdings im Wesentlichen von der Menge an Text ab,
 den die Probanden in der Regel sorgfältig lasen. Abb. \ref{fig:katMatrix} zeigt die Betrachtungsdauer der einzelnen 
 Kategorien aufgeschlüsselt auf Text und keinen Text. 
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild3.png}
-    \caption{Jedes Feld zeigt die Kombination zweier Kategorien, mit dem Wert für "Text" linksoben und "Ohne Text" rechtsunten}\label{fig:katMatrix}
-\end{figure}
 
 Daher versuchten wir, den Einfluss der Textlänge herauszufiltern. Als erste Lösung bereinigten 
 wir die Betrachtungsdauer um die Anzahl der Wörter mit folgender Formel:
@@ -183,13 +171,6 @@ wir die Betrachtungsdauer um die Anzahl der Wörter mit folgender Formel:
 
 Die resultierenden relativen Betrachtungsdauern sind in Abbidlung \ref{fig:bild27} dargestellt, 
 wobei ein Vergleich mit Bildern ohne Text wegen fehlender Vergleichbarkeit außen vor gelassen wurde.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild31.png}
-    \caption{Median der Betrachtungsdauer pro Gruppe}
-    \label{fig:bild27}
-\end{figure}
 
 Eine Möglichkeit, um den Einfluss jeder Kategorie auf die Betrachtungsdauer zu ermitteln, 
 ist die Regression. In unserem Fall lag eine Zensierung der Daten, also eine Beschränkung 
@@ -263,50 +244,21 @@ Pro Bild aggregieren wir die Fixationsdaten über Personen mit einem getrimmten 
 
 \subsubsection{Korrelationen}
 Wir korrelieren pro Bild die Kontrastwerte mit den drei Blick-Kennzahlen (Pearson; $n \approx 152$ Bilder). Die wichtigsten Zusammenhänge:
-siehe Abbildung \ref{fig:bild4} bis \ref{fig:bild9}
+siehe Abbildung \ref{fig:bild4} und \ref{fig:bild5} bis \ref{fig:bild9}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild4.png}
     \caption{RMS $\rightarrow n\_fix\_mean\_trim$: $r \approx 0.34$, $p \ll .01$ \\
           Höherer globaler Kontrast geht mit mehr Fixationen einher. }\label{fig:bild4}
 \end{figure}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild5.png}
-    \caption{ RMS $\rightarrow tot\_dur\_mean\_trim$: $r \approx 0.25$, $p \ll .01$ \\
-          Leicht längere Gesamtdauer bei höherem RMS. }\label{fig:bild5}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild6.png}
-    \caption{ RMS $\rightarrow med\_dur\_mean\_trim$: $r \approx -0.33$, $p \ll .01$ \\
-          Kürzere typische (Median-)Fixationen bei mehr Kontrast. }\label{fig:bild6}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild7.png}
-    \caption{Laplace $\rightarrow n\_fix\_mean\_trim$: $r \approx 0.47$, $p \ll .001$ \\
-          Stärkster positiver Zusammenhang: detail-/kantenreiche Bilder werden deutlich häufiger fixiert. }\label{fig:bild7}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild8.png}
-    \caption{Laplace $\rightarrow tot\_dur\_mean\_trim$: $r \approx 0.36$, $p \ll .001$ \\
-          Mehr Gesamtdauer mit steigender Kantenstärke.  }\label{fig:bild8}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild9.png}
-    \caption{Laplace $\rightarrow med\_dur\_mean\_trim$: $r \approx -0.33$, $p \ll .01$ \\
-          Kürzere Einzel-Fixationen bei mehr Details.  }\label{fig:bild9}
-\end{figure}
-
 \subsubsection{Interpretation}
 Bilder mit hohem RMS oder hohem Laplace-Wert ziehen den Blick häufiger an (mehr Fixationen) und führen trotz kürzerer Einzel-Fixationen zu mehr Gesamtdauer – konsistent mit einem \textit{Scanning-/Exploration-Muster}: Viele visuelle Ankerpunkte (Kanten, Texturen, Beschriftungen) werden nacheinander kurz begutachtet. 
 
-Dass Laplace stärker mit der Fixationsanzahl korreliert als RMS, deutet darauf hin, dass Kanten/Feinstruktur (und nicht nur globale Helligkeitsspannen) ein besonders wirksamer Treiber für Aufmerksamkeit sind. Dies deckt sich mit der Literatur \cite{SaliencyPrediction_JoV}.
+Dass Laplace stärker mit der Fixationsanzahl korreliert als RMS, deutet darauf hin, dass Kanten/Feinstruktur 
+(und nicht nur globale Helligkeitsspannen) ein besonders wirksamer Treiber für Aufmerksamkeit sind. 
+Dies deckt sich mit der Literatur \cite{SaliencyPrediction_JoV}.
 
 \subsubsection{Limitationen \& nächste Schritte}
 Korrelation $\neq$ Kausalität; Kategorien (z.\,B. Text) könnten Kontrast und Blickverhalten gemeinsam beeinflussen. Sinnvoll sind: 
@@ -338,6 +290,12 @@ determinism, laminarity (jeweils in Prozent) und center of recurrence mass (corm
 Diese wurden zu allen erhobenen Eye-Tracker Daten berechnet, auf Korrelation überprüft 
 und zu Histogrammen (nach unterschiedlichen Bildkategorien) aggregiert.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild23.png}
+    \caption{Histogramm Vergleich nach Person und laminarity LAM}\label{fig:bild19}
+\end{figure}
+
 \subsection{Ergebnisse und mögliche Interpretation}
 Abbildung \ref{fig:Bild10a} und \ref{fig:Bild10b} dienen als Beispiel dafür, wie sich die Metriken ergeben. 
 Abbildung \ref{fig:Bild11} zeigt die Verteilung der Metriken als Histogramm. Auffällig ist 
@@ -347,66 +305,15 @@ Teil mit einer niedrigen recurrence korrelieren (mehr dazu im Vergleich zwischen
 Denn: Je weniger sich Fixationen wiederholen, desto seltener wiederholen sich 
 Fixationssequenzen (determinism) und desto seltener werden AOIs im Detail gescannt (laminarity). 
 
-\begin{figure}[ht]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{figures/Bild10.jpg}
-        \caption{Proband 35 mit Bild 37 und Heatmap}\label{fig:Bild10a}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{figures/Bild11.png}
-        \caption{Rekurrenz Plot zu Abbildung \ref{fig:Bild10a}}\label{fig:Bild10b}
-    \end{subfigure}\label{fig:Bild10}
-    \caption{N = 23, R = 29, REC = 11.46\%, DET = 62.07\%, LAM = 25.86\%, CORM = 29.78\%}
-\end{figure}
-
 \begin{figure*}[ht]
     \centering
     \includegraphics[width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{figures/Bild12.png}
     \caption{Histogramme der Metriken aller Daten}\label{fig:Bild11}
 \end{figure*}
 
-\begin{figure*}[ht]
-    \centering
-    \includegraphics[width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{figures/Bild13.png}
-    \caption{Korrelationsmatrix der Metriken + Histogramm}\label{fig:Bild12}
-\end{figure*}
-
 Hohe determinism Werte können sich andererseits bspw. 
 aus dem wiederholten Lesen von Text ergeben (Abb. \ref{fig:Bild13a} und ref{fig:Bild13b}). 
 Zusätzlich können hohe Ausreißer entstehen, wenn sich der Proband nur eine AOI anschaut (Abb. \ref{fig:Bild14a} und \ref{fig:Bild14b}). 
-
-\begin{figure}[ht]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{figures/Bild14.png}
-        \caption{Proband 42 mit Bild 128 und Heatmap}\label{fig:Bild13a}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{figures/Bild15.png}
-        \caption{Rekurrenz Plot zu Abbildung \ref{fig:Bild13a}}\label{fig:Bild13b}
-    \end{subfigure}\label{fig:Bild13}
-    \caption{N = 49, R = 154, REC = 13.10\%, DET = 70.\%, LAM = 43.51\%, CORM = 35.42\%}
-\end{figure}
-
-\begin{figure}[ht]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{figures/Bild16.jpg}
-        \caption{Proband 16 mit Bild 6 und Heatmap}\label{fig:Bild14a}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{figures/Bild17.png}
-        \caption{Rekurrenz Plot zu Abbildung \ref{fig:Bild14a}}\label{fig:Bild14b}
-    \end{subfigure}\label{fig:Bild14}
-    \caption{N = 35, R = 381, REC = 64.03\%, DET = 93.96\%, LAM = 91.99\%, CORM = 31.80\%}
-\end{figure}
 
 \subsubsection{Vergleich zwischen Bildkategorien}
 In Abbildung \ref{fig:bild15} lässt sich erkennen, dass Bilder mit Text eine höhere Anzahl an Fixationen haben, 
@@ -419,65 +326,13 @@ Der niedrigere corm Wert (Abb. \ref{fig:bild17}) ergibt sich vermutlich daraus, 
 nur einmal komplett am Anfang der Bildbetrachtung gelesen werden. Das reicht, 
 um den Wert trotz nachfolgender normaler Betrachtung der Bildelemente zu senken (siehe Abb. \ref{fig:Bild18a} und \ref{fig:Bild18b}). 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild18.png}
-    \caption{Histogramm Vergleich nach Text und Fixationsanzahl N}\label{fig:bild15}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild19.png}
-    \caption{Histogramm Vergleich nach Text und recurrence REC}\label{fig:bild16}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild20.png}
-    \caption{Histogramm Vergleich nach Text und corm}\label{fig:bild17}
-\end{figure}
-
-\begin{figure}[ht]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{figures/Bild21.png}
-        \caption{Proband 40 mit Bild 124 und Heatmap}\label{fig:Bild18a}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{figures/Bild22.png}
-        \caption{Rekurrenz Plot zu Abbildung \ref{fig:Bild18a}}\label{fig:Bild18b}
-    \end{subfigure}\label{fig:Bild18}
-    \caption{N = 31, R = 21, REC = 4.52\%, DET = 47.62\%, LAM = 54.76\%, CORM = 7.94\%}
-\end{figure}
-
 Beim Vergleich von Bildern mit und ohne Person, sticht eine deutlich höhere laminarity heraus (Abb. \ref{fig:bild19}). 
 Dies liegt vermutlich daran, dass vor allem Gesichter im Verlauf der Bildbetrachtung erneut genauer betrachtet werden. 
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild23.png}
-    \caption{Histogramm Vergleich nach Person und laminarity LAM}\label{fig:bild19}
-\end{figure}
 
 Beim Vergleich von Bildern nach Ort ist auffällig, dass Bilder mit Ort bei determinism und laminarity 
 prozentual mehr als die doppelte Anzahl an „fast Null-Werten“ haben als ohne Ort (Abb. \ref{fig:Bild20a} und \ref{fig:Bild20b}), 
 obwohl die recurrence nur um 1,52\% sinkt. Dies könnte daran liegen, dass die AOIs bei reinen 
 Orts-/ Landschaftsbildern oft verstreuter und unklarer sind. 
-
-\begin{figure}[ht]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{figures/Bild24.png}
-        \caption{Histogramm Vergleich nach Ort und determinism DET }\label{fig:Bild20a}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{figures/Bild25.png}
-        \caption{Histogramm Vergleich nach Ort und laminarity LAM}\label{fig:Bild20b}
-    \end{subfigure}\label{fig:Bild20}
-    \caption{Vergleich der Histogramme mit Ort}
-\end{figure}
 
 Für Memes lassen sich die Unterschiede darauf zurückführen, dass diese oft Text, während politische Bilder oft Personen enthalten.  
 
@@ -648,11 +503,6 @@ Zuletzt wird das Blickverhalten über den Zeitlichen Verlauf betrachtet. In Abbi
 Anteil der Fixationen-auf-Text für jeden Zeitpunkt betrachtet werden. Das heißt, dass zum Beispiel 
 für Memes 40\% aller Gaze Points an der Stelle 200 auf Text lagen. 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Dummy.jpg}
-    \caption{Fixationen-auf-Text Anteil/Text Anteil}\label{fig:bild26}
-\end{figure}
 
 Im Zeitlichen Verlauf ist ein starker Trend zu erkennen. Anfangs steigt der gaze-point-auf-Text Anteil stark an und erreicht 
 bereits in den ersten Sekunden seinen Hochpunkt. Anschließend sinkt der Anteil wieder relativ schnell. 
@@ -687,8 +537,8 @@ Zentrale Befunde lassen sich wie folgt zusammenfassen:
     \item Segmentierungsbasierte Analysen bestätigen, dass Personen in Bildern 
     den Blick der Teilnehmenden besonders stark binden – unabhängig von der relativen Flächenabdeckung. 
 \end{itemize}
-
-Insgesamt verdeutlichen die Ergebnisse, dass Blickverhalten kein zufälliger Prozess ist, 
+\hfill
+\newline Insgesamt verdeutlichen die Ergebnisse, dass Blickverhalten kein zufälliger Prozess ist, 
 sondern systematisch durch Bildmerkmale, Präsentationsbedingungen und Kategorien geprägt wird. 
 Die Kombination aus klassischen Kennwerten, statistischen Modellierungen und innovativen Verfahren 
 wie der Rekurrenzanalyse oder der Segmentierung eröffnet dabei neue Perspektiven für die 
@@ -707,6 +557,159 @@ und trägt damit zu einem besseren Verständnis menschlicher Informationsverarbe
 \newpage
 \printbibliography[heading=header]
 
+\clearpage
+\appendix
+\section{Abbildungen}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild3.png}
+    \caption{Jedes Feld zeigt die Kombination zweier Kategorien, mit dem Wert für "Text" linksoben und "Ohne Text" rechtsunten}\label{fig:katMatrix}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild31.png}
+    \caption{Median der Betrachtungsdauer pro Gruppe}
+    \label{fig:bild27}
+\end{figure}
+
+\begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{figures/Bild2.png}
+    \caption{Die Kategorien mit der jeweiligen durchschnittlichen Betrachtungsdauern}\label{fig:katDauer}
+\end{figure*}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild5.png}
+    \caption{ RMS $\rightarrow tot\_dur\_mean\_trim$: $r \approx 0.25$, $p \ll .01$ \\
+          Leicht längere Gesamtdauer bei höherem RMS. }\label{fig:bild5}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild6.png}
+    \caption{ RMS $\rightarrow med\_dur\_mean\_trim$: $r \approx -0.33$, $p \ll .01$ \\
+          Kürzere typische (Median-)Fixationen bei mehr Kontrast. }\label{fig:bild6}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild7.png}
+    \caption{Laplace $\rightarrow n\_fix\_mean\_trim$: $r \approx 0.47$, $p \ll .001$ \\
+          Stärkster positiver Zusammenhang: detail-/kantenreiche Bilder werden deutlich häufiger fixiert. }\label{fig:bild7}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild8.png}
+    \caption{Laplace $\rightarrow tot\_dur\_mean\_trim$: $r \approx 0.36$, $p \ll .001$ \\
+          Mehr Gesamtdauer mit steigender Kantenstärke.  }\label{fig:bild8}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild9.png}
+    \caption{Laplace $\rightarrow med\_dur\_mean\_trim$: $r \approx -0.33$, $p \ll .01$ \\
+          Kürzere Einzel-Fixationen bei mehr Details.  }\label{fig:bild9}
+\end{figure}
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{figures/Bild13.png}
+    \caption{Korrelationsmatrix der Metriken + Histogramm}\label{fig:Bild12}
+\end{figure*}
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/Bild14.png}
+        \caption{Proband 42 mit Bild 128 und Heatmap}\label{fig:Bild13a}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/Bild15.png}
+        \caption{Rekurrenz Plot zu Abbildung \ref{fig:Bild13a}}\label{fig:Bild13b}
+    \end{subfigure}\label{fig:Bild13}
+    \caption{N = 49, R = 154, REC = 13.10\%, DET = 70.\%, LAM = 43.51\%, CORM = 35.42\%}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/Bild16.jpg}
+        \caption{Proband 16 mit Bild 6 und Heatmap}\label{fig:Bild14a}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/Bild17.png}
+        \caption{Rekurrenz Plot zu Abbildung \ref{fig:Bild14a}}\label{fig:Bild14b}
+    \end{subfigure}\label{fig:Bild14}
+    \caption{N = 35, R = 381, REC = 64.03\%, DET = 93.96\%, LAM = 91.99\%, CORM = 31.80\%}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/Bild10.jpg}
+        \caption{Proband 35 mit Bild 37 und Heatmap}\label{fig:Bild10a}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/Bild11.png}
+        \caption{Rekurrenz Plot zu Abbildung \ref{fig:Bild10a}}\label{fig:Bild10b}
+    \end{subfigure}\label{fig:Bild10}
+    \caption{N = 23, R = 29, REC = 11.46\%, DET = 62.07\%, LAM = 25.86\%, CORM = 29.78\%}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild18.png}
+    \caption{Histogramm Vergleich nach Text und Fixationsanzahl N}\label{fig:bild15}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild19.png}
+    \caption{Histogramm Vergleich nach Text und recurrence REC}\label{fig:bild16}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild20.png}
+    \caption{Histogramm Vergleich nach Text und corm}\label{fig:bild17}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/Bild21.png}
+        \caption{Proband 40 mit Bild 124 und Heatmap}\label{fig:Bild18a}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/Bild22.png}
+        \caption{Rekurrenz Plot zu Abbildung \ref{fig:Bild18a}}\label{fig:Bild18b}
+    \end{subfigure}\label{fig:Bild18}
+    \caption{N = 31, R = 21, REC = 4.52\%, DET = 47.62\%, LAM = 54.76\%, CORM = 7.94\%}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/Bild24.png}
+        \caption{Histogramm Vergleich nach Ort und determinism DET }\label{fig:Bild20a}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/Bild25.png}
+        \caption{Histogramm Vergleich nach Ort und laminarity LAM}\label{fig:Bild20b}
+    \end{subfigure}\label{fig:Bild20}
+    \caption{Vergleich der Histogramme mit Ort}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Dummy.jpg}
+    \caption{Fixationen-auf-Text Anteil/Text Anteil}\label{fig:bild26}
+\end{figure}
 % ============================================================
 
 \end{document}
