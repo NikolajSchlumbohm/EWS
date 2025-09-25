@@ -1,19 +1,38 @@
-# ===== Kontrast–Fixation Korrelation (Laplace vs. Fixationen je Bild) =====
-# Erwartet:
-#   1) laplace_per_file.csv (aus deinem Laplace-Skript): Spalten u.a. stem, label, lap_var_norm
-#   2) Fixationen als .parquet (ein File = ein Betrachter x Bild) mit Spalten:
-#      start_ms, end_ms, duration_ms, x, y, n_samples
-#
-# Matching:
-#   Dateinamen sind "binär": ..._<5bit>.ext  (z.B. P01_IMG004_10100.parquet / .png)
-#   Wir extrahieren eine kanonische Schlüssel-Form aus dem Dateinamen:
-#     alles bis inkl. "_[01]{5}"  → "P01_IMG004_10100"
-#
-# Output:
-#   - merged_per_image.csv           (Laplace + getrimmte Fixationsmetriken je Bild)
-#   - correlation_summary.txt        (Pearson/Spearman + p-Werte, n)
-#   - scatter_*.png                  (Scatter + Regressionslinie)
-#
+"""
+# correlation_laplace.py
+# Zweck
+Prüft, ob die **Laplace-Metrik** (normalisierte Laplace-Varianz; Kanten/Detailkontrast)
+von Bildern mit **Fixations­metriken** korreliert (Pearson-Korrelation).
+Ausreißer können per 5–95 %-Quantil begrenzt werden, es wird pro Bild über Personen aggregiert,
+und Scatterplots werden erzeugt.
+
+# Eingaben
+1) Bildwerte:
+   - Entweder: per-Bild-CSV mit `stem`, `lap_var_norm` (aus laplace_per_image.py)
+
+2) Fixationen (Parquet/CSV):
+   - Dateien mit: `start_ms`, `end_ms`, `duration_ms`, `x`, `y`, `n_samples`
+
+# Matching / Keys
+- Join über **stem** (z. B. `P01_IMG004_10100`).
+
+# Ausgaben
+- `<OUT>/correlation_laplace.csv`:
+  - `N`, `pearson_r`, `p_value`, Zielmetrik (z. B. `fix_count`, `fix_dur_total`)
+- `<OUT>/scatter_fix_count.png`, `<OUT>/scatter_fix_dur_total.png`:
+  - Scatterplots mit Regressionslinie; Achsen: x=Laplace, y=Fixationskennzahl
+
+
+# Kennzahlen (pro Bild, vor Korrelation)
+- `fix_count`        : Anzahl Fixationen (nach 5–95 %-Filter)
+- `fix_dur_total`    : Summe Fixations­dauern (ms) (nach 5–95 %-Filter)
+- optional weitere (mean/median Dauer)
+
+# Hinweise
+- Laplace betont lokale Kanten/Feinstrukturen; oft näher an „salienten“ Details.
+- Interpretation von Pearson r wie bei RMS.
+"""
+
 from pathlib import Path
 import argparse, os, re, sys
 import numpy as np
@@ -68,11 +87,11 @@ VIEWER_PREFIX_RE  = re.compile(r"^(?:proband\d+_|p\d+_)", re.IGNORECASE)
 
 def canonical_key_from_name(name: str) -> str:
     base = name.lower()
-    base = VIEWER_PREFIX_RE.sub("", base)     # entferne 'p09_' / 'proband12_'
+    base = VIEWER_PREFIX_RE.sub("", base)     
     m = BIN_MASK_RE.search(base)
     if m:
-        return base[:m.end()]                 # bis inkl. '_xxxxx'
-    return base                                # Fallback: kompletter (bereinigter) Name
+        return base[:m.end()]                 
+    return base                               
 
 def canonical_key_from_path(path: Path) -> str:
     return canonical_key_from_name(path.stem)
@@ -139,7 +158,7 @@ if "lap_var_norm" not in df_lap.columns:
 df_lap["key"] = df_lap["stem"].astype(str).apply(canonical_key_from_name)
 df_lap_img = (df_lap.groupby("key", as_index=False)
                     .agg(lap_var_norm=("lap_var_norm","mean"),
-                         label=("label", lambda s: s.iloc[0] if len(s)>0 else "")))
+                         stem=("stem", lambda s: s.iloc[0] if len(s)>0 else "")))
 print(f"[Info] Laplace-Bilder (unique): {len(df_lap_img)}")
 
 # ---------------- 2) Fixations-Parquet lesen (strikt Parquet) ----------------
@@ -202,26 +221,10 @@ inter    = lap_keys & fix_keys
 
 print(f"[Debug] Keys Laplace: {len(lap_keys)} | Fixations: {len(fix_keys)} | Schnittmenge: {len(inter)}")
 
-# Falls nötig: Beispiele dumpen
-with open(OUT_DIR / "debug_keys_lap.txt", "w", encoding="utf-8") as f:
-    for k in islice(sorted(lap_keys), 200):
-        f.write(k + "\n")
-with open(OUT_DIR / "debug_keys_fix.txt", "w", encoding="utf-8") as f:
-    for k in islice(sorted(fix_keys), 200):
-        f.write(k + "\n")
-with open(OUT_DIR / "debug_keys_intersection.txt", "w", encoding="utf-8") as f:
-    for k in islice(sorted(inter), 200):
-        f.write(k + "\n")
-
 # ---------------- 4) Merge Laplace ⟷ Fixationsaggregate ----------------
 df_merged = pd.merge(df_lap_img, agg_per_image, on="key", how="inner")
 if df_merged.empty:
-    sys.exit("Keine Schnittmenge zwischen Laplace-Bildern und Fixations-Bildern (Keys stimmen nicht?). "
-             "Siehe debug_keys_*.txt im OUT_DIR.")
-
-merged_csv = OUT_DIR / "merged_per_image.csv"
-df_merged.to_csv(merged_csv, index=False)
-print(f"[OK] Merged per Image gespeichert: {merged_csv}")
+    sys.exit("Keine Schnittmenge zwischen Laplace-Bildern und Fixations-Bildern")
 
 # ---------------- 5) Korrelationen ----------------
 targets = {
@@ -237,14 +240,6 @@ for col, desc in targets.items():
     if ARGS.spearman:
         rS, pS, nS = safe_corr(df_merged["lap_var_norm"], df_merged[col], method="spearman")
         lines.append(f"Spearman lap_var_norm vs {col:<18} (n={nS:3d}): ρ = {rS: .4f}, p = {pS:.3g}  [{desc}]")
-
-with open(OUT_DIR / "correlation_summary.txt", "w", encoding="utf-8") as f:
-    f.write("Kontrast–Fixation Korrelationen (trimmed 5–95 %)\n")
-    f.write(f"Laplace-Quelle : {LAPLACE_CSV}\n")
-    f.write(f"Fixation-Ordner: {FIX_DIR}\n")
-    f.write(f"Parquet-Engine : {ENGINE}\n\n")
-    for ln in lines:
-        f.write(ln + "\n")
 
 print("\n".join(lines))
 

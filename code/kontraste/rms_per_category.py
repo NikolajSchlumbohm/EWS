@@ -1,7 +1,49 @@
-# rms_sets_from_csv.py
-# Baut deine 4 Vergleichs-Sets direkt aus rms_per_file.csv
-# Erwartet Spalten: stem, rms_contrast
-# Die 5-Bit-Maske wird aus 'stem' extrahiert (…_xxxxx).
+"""
+# rms_per_category.py
+# Zweck
+Liest eine per-Bild-CSV mit **RMS-Kontrast** ein, rekonstruiert (optional) die 5-Bit-Kategorie
+aus dem Dateinamen und erzeugt **kategorienweise Auswertungen** (Aggregat-CSV, Heatmaps,
+optional Signifikanztests) für vier vordefinierte Vergleichs-Sets.
+
+# Eingaben
+- CSV: `rms_per_file.csv` mit mindestens:
+  - `stem`          – Dateiname ohne Erweiterung (enthält am Ende die 5-Bit-Maske …_xxxxx)
+  - `rms_contrast`  – RMS-Kontrast des Bildes in [0,1]
+- 5-Bit-Maske (optional, aber empfohlen): Reihenfolge
+  ["meme","ort","person","politik","text"], z. B. `_10100`
+
+# Ausgaben (pro Set in Unterordnern)
+- `<OUT>/<SET>/rms_per_file.csv`  – gefilterte Zeilen des Sets
+- `<OUT>/<SET>/rms_agg.csv`       – Aggregation je Label (count, mean, median, std, min, max)
+- `<OUT>/<SET>/heat_values_mean.png`  (bzw. `_median`) – Heatmap der Kennzahl je Kategorie
+- `<OUT>/<SET>/heat_diff_mean.png`    (bzw. `_median`) – Heatmap der absoluten Differenzen
+- `<OUT>/<SET>/significance_summary.txt` (optional) – Kruskal–Wallis-Test
+- `<OUT>/<SET>/pairwise_mwu_rms.csv`    (optional) – Paarweise Mann–Whitney (+ BH-FDR, r_bc)
+
+# Vergleichs-Sets (vordefiniert)
+1) singletons: meme, ort, person, politik, text
+2) text-pairs + singletons: meme, ort, person, text, meme_text, ort_text, politik_text, person_text
+3) person-chain: person, person_text, person_politik, person_text_politik
+4) text_politik_meme vs. text_politik_person
+
+# CLI / Pfade
+--rms-csv   : Pfad zur per-Bild-CSV (repo-relativ oder absolut),
+              Default: EWS/code/kontraste/rms_per_image/rms_per_file.csv
+--out, -o   : Output-Ordner (Default: EWS/code/kontraste/rms_per_category)
+--agg-stat  : "mean" oder "median" (steuert Heatmaps/Titel)
+--digits    : Rundung der Anzeige (Default: 4)
+--do-stats  : Signifikanztests aktivieren
+
+# Beispiel
+python rms_per_category.py --rms-csv EWS/code/kontraste/rms_per_image/rms_per_file.csv \
+                           --out EWS/code/kontraste/rms_per_category \
+                           --agg-stat mean --do-stats
+
+# Hinweise
+- RMS misst globale Helligkeitskontraste (frequenz-/ortsunabhängig).
+- Labels werden bei Bedarf aus der 5-Bit-Maske in `stem` rekonstruiert.
+- Heatmap-Farben sind dezent (Blues, beschnittene Skala).
+"""
 
 from pathlib import Path
 import argparse, os, re, itertools

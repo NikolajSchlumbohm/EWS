@@ -1,21 +1,38 @@
+"""
 # correlation_rms.py
-# ===== Korrelation: RMS-(Kontrast) vs. Fixationen je Bild =====
-# Erwartet:
-#   1) RMS-CSV (per Bild), z. B. Spalten:
-#        file_image | file | path (eine davon)  + stem (optional) + label (optional) + <rms-Spalte>
-#      RMS-Spalte wird automatisch gesucht (Kandidaten siehe RMS_COL_CANDIDATES).
-#   2) Fixationsdateien als .parquet (ein File = ein Betrachter x Bild), mind.:
-#        duration_ms   (x, y, start_ms, end_ms, n_samples optional)
-#
-# Matching:
-#   Dateinamen tragen eine 5-Bit-Maske: ..._<5bit>.*  (z.B. P09_IMG074_00101.parquet)
-#   Schlüssel = lowercase(Name ohne Probanden-Prefix) bis inkl. 5-Bit-Maske.
-#
-# Output:
-#   - merged_per_image.csv
-#   - correlation_summary.txt
-#   - scatter_rms_vs_*.png
-#   - debug_keys_*.txt  (bei Bedarf)
+# Zweck
+Prüft, ob der **RMS-Kontrast** von Bildern mit **Fixations­metriken** aus Eye-Tracking
+zusammenhängt (Pearson-Korrelation). Optional werden Ausreißer per 5–95 %-Quantil
+begrenzt, pro Bild über alle Personen aggregiert und Scatterplots erzeugt.
+
+# Eingaben
+1) Bildwerte:
+   - Entweder: per-Bild-CSV mit `stem`, `rms_contrast` (empfohlen: aus rms_per_image.py)
+
+2) Fixationen (Parquet/CSV):
+   - Dateien mit Spalten wie: `start_ms`, `end_ms`, `duration_ms`, `x`, `y`, `n_samples`
+   - Mehrere Personen/Trials pro Bild sind erlaubt
+
+# Matching / Keys
+- Bilder und Fixationen werden über **stem** gematcht (z. B. `P01_IMG004_10100`).
+
+# Ausgaben
+- `<OUT>/correlation_rms.csv`:
+  - `N` (Anzahl Bilder), `pearson_r`, `p_value`, Zielmetrik (z. B. `fix_count`, `fix_dur_total`)
+- `<OUT>/scatter_fix_count.png`, `<OUT>/scatter_fix_dur_total.png`:
+  - Scatterplots mit Regressionslinie; Achsen: x=RMS, y=Fixationskennzahl
+
+# Kennzahlen (pro Bild, vor Korrelation)
+- `fix_count`        : Anzahl Fixationen (nach 5–95 %-Filter)
+- `fix_dur_total`    : Summe Fixations­dauern (ms) (nach 5–95 %-Filter)
+- optional weitere (mean/median Dauer) je nach Skript-Einstellung
+
+
+# Hinweise
+- RMS misst globalen Helligkeitskontrast (frequenz-/ortsunabhängig).
+- Pearson r≈1 → starker positiver Zusammenhang (mehr Kontrast bedeutet mehr/ längere Fixationen),
+  r≈0 → kein linearer Zusammenhang, r<0 → negativer Zusammenhang.
+"""
 
 from pathlib import Path
 import argparse, os, re, sys
@@ -71,11 +88,11 @@ VIEWER_PREFIX_RE  = re.compile(r"^(?:proband\d+_|p\d+_)", re.IGNORECASE)
 
 def canonical_key_from_name(name: str) -> str:
     base = name.lower()
-    base = VIEWER_PREFIX_RE.sub("", base)     # entferne 'p09_' / 'proband12_'
+    base = VIEWER_PREFIX_RE.sub("", base)     
     m = BIN_MASK_RE.search(base)
     if m:
-        return base[:m.end()]                 # bis inkl. '_xxxxx'
-    return base                                # Fallback: kompletter (bereinigter) Name
+        return base[:m.end()]                 
+    return base                               
 
 def canonical_key_from_path(path: Path) -> str:
     return canonical_key_from_name(path.stem)
@@ -250,25 +267,10 @@ inter    = rms_keys & fix_keys
 
 print(f"[Debug] Keys RMS: {len(rms_keys)} | Fixations: {len(fix_keys)} | Schnittmenge: {len(inter)}")
 
-with open(OUT_DIR / "debug_keys_rms.txt", "w", encoding="utf-8") as f:
-    for k in islice(sorted(rms_keys), 200):
-        f.write(k + "\n")
-with open(OUT_DIR / "debug_keys_fix.txt", "w", encoding="utf-8") as f:
-    for k in islice(sorted(fix_keys), 200):
-        f.write(k + "\n")
-with open(OUT_DIR / "debug_keys_intersection.txt", "w", encoding="utf-8") as f:
-    for k in islice(sorted(inter), 200):
-        f.write(k + "\n")
-
 # ---------------- 4) Merge RMS ⟷ Fixationsaggregate ----------------
 df_merged = pd.merge(df_rms_img, agg_per_image, on="key", how="inner")
 if df_merged.empty:
-    sys.exit("Keine Schnittmenge zwischen RMS-Bildern und Fixations-Bildern (Keys stimmen nicht?). "
-             "Siehe debug_keys_*.txt im OUT_DIR.")
-
-merged_csv = OUT_DIR / "merged_per_image.csv"
-df_merged.to_csv(merged_csv, index=False)
-print(f"[OK] Merged per Image gespeichert: {merged_csv}")
+    sys.exit("Keine Schnittmenge zwischen RMS-Bildern und Fixations-Bildern")
 
 # ---------------- 5) Korrelationen ----------------
 targets = {
@@ -284,14 +286,6 @@ for col, desc in targets.items():
     if ARGS.spearman:
         rS, pS, nS = safe_corr(df_merged["rms"], df_merged[col], method="spearman")
         lines.append(f"Spearman rms vs {col:<18} (n={nS:3d}): ρ = {rS: .4f}, p = {pS:.3g}  [{desc}]")
-
-with open(OUT_DIR / "correlation_summary.txt", "w", encoding="utf-8") as f:
-    f.write("RMS–Fixation Korrelationen (trimmed 5–95 %)\n")
-    f.write(f"RMS-Quelle    : {RMS_CSV}\n")
-    f.write(f"Fixation-Ordner: {FIX_DIR}\n")
-    f.write(f"Parquet-Engine : {ENGINE}\n\n")
-    for ln in lines:
-        f.write(ln + "\n")
 
 print("\n".join(lines))
 

@@ -1,8 +1,0 @@
-RMS–Fixation Korrelationen (trimmed 5–95 %)
-RMS-Quelle    : C:\Users\fabia\Desktop\EWS\code\kontraste\rms_per_image\rms_per_file.csv
-Fixation-Ordner: C:\Users\fabia\Desktop\EWS\code\preprocess\events\fixations
-Parquet-Engine : pyarrow
-
-Pearson  rms vs n_fix_mean_trim    (n=152): r =  0.3353, p = 2.42e-05  [getrimmtes Mittel der Fixationsanzahl]
-Pearson  rms vs tot_dur_mean_trim  (n=152): r =  0.2520, p = 0.00173  [getrimmtes Mittel der Gesamtdauer (ms)]
-Pearson  rms vs med_dur_mean_trim  (n=152): r = -0.3267, p = 3.99e-05  [getrimmtes Mittel der Median-Dauer (ms)]

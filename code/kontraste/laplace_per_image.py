@@ -1,6 +1,34 @@
-# ===== Laplace pro Bild (ohne Gaze/CSV): normalisierte Laplace-Varianz → per-file CSV =====
-# Bits (optional, falls im Dateinamen vorhanden): ["meme","ort","person","politik","text"]
-# Dateiname: ..._<5bit>.jpg|.png  (z. B. P01_IMG004_10100.jpg)
+"""
+# laplace_per_image.py
+# Zweck
+Berechnet für **alle Bilder** die **normalisierte Laplace-Varianz** (Kanten-/Feinkontrast-Metrik)
+und speichert eine CSV mit einem Wert pro Bild.
+
+# Eingaben
+- Bildordner (rekursiv): *.jpg, *.jpeg, *.png
+- Optional: 5-Bit-Maske im Dateinamen (…_xxxxx), Bits in Reihenfolge:
+  ["meme", "ort", "person", "politik", "text"]  → z. B. 10100
+
+# Ausgaben
+- CSV: `laplace_per_file.csv` mit mindestens:
+  - `stem`           – Dateiname ohne Erweiterung
+  - `lap_var_norm`   – normalisierte Laplace-Varianz (var(L) / (var(I_smooth)+eps))
+  (Optional können zusätzliche Spalten wie `file_image`, `mask`, `label` enthalten sein, falls im Code aktiv.)
+
+# CLI / Pfade & Parameter
+--input-img      : Eingabeordner (repo-relativ oder absolut), Default: EWS/data/img/img_bin
+--out   / -o     : Output-Ordner  (repo-relativ oder absolut), Default: EWS/code/kontraste/laplace_per_image
+--per-file-csv   : Dateiname der Ausgabedatei, Default: laplace_per_file.csv
+--sigma          : σ für optionale Gauss-Glättung vor Laplace (float, Default: 1.0; 0 = aus)
+
+# Beispiel
+python laplace_per_image.py --input-img EWS/data/img/img_bin --out EWS/code/kontraste/laplace_per_image --sigma 1.0
+
+# Hinweise
+- Pipeline: (optional) Gaussian(I, σ) → Laplace(ksize=3) → var(L) / (var(I_smooth)+1e-12)
+- Misst lokale Kanten/Feinstrukturen; höher = „hüppeligere“ (detailreichere) Bilder.
+- Die 5-Bit-Maske ist **optional** und wird nur extrahiert, wenn im Dateinamen vorhanden.
+"""
 
 from pathlib import Path
 import argparse, os, sys
@@ -30,7 +58,6 @@ def parse_args():
 ARGS = parse_args()
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-# Repo-Root: zwei Ebenen hoch (…/EWS/), falls dein Skript in …/EWS/code/… liegt
 REPO_ROOT  = SCRIPT_DIR.parents[2] if len(SCRIPT_DIR.parents) >= 2 else SCRIPT_DIR
 
 def R(pth: str, root: Path) -> Path:
@@ -84,9 +111,7 @@ def laplacian_var_norm(gray01: np.ndarray, sigma: float = 1.0) -> float:
     vI = float(np.var(I, ddof=0))
     return float(vL / (vI + 1e-12))
 
-# --------------------------------------------------------------------------------------
-# 1) Pro Bild: Metrik berechnen und in CSV schreiben
-# --------------------------------------------------------------------------------------
+# --- Loop & CSV ---
 rows, errors = [], 0
 for p in image_paths:
     try:
@@ -102,8 +127,6 @@ for p in image_paths:
         print(f"[Warnung] Fehler bei {p}: {e}")
 
 df = pd.DataFrame(rows).sort_values(["stem"])
-
-
 
 out_csv = (OUT_DIR / ARGS.per_file_csv).resolve()
 df.to_csv(out_csv, index=False)

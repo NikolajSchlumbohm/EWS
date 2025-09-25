@@ -1,6 +1,33 @@
-# rms_per_image_min.py
-# Berechnet den RMS-Kontrast (StdAbw der Grauintensität in [0,1]) für ALLE Bilder
-# und speichert eine CSV: stem, rms_contrast
+"""
+# rms_per_image.py
+# Zweck
+Berechnet für **alle Bilder** den **RMS-Kontrast** (Standardabweichung der Grauintensitäten in [0,1])
+und speichert eine CSV mit einem Wert pro Bild.
+
+# Eingaben
+- Bildordner (rekursiv): *.jpg, *.jpeg, *.png
+- Optional: 5-Bit-Maske im Dateinamen (…_xxxxx), Bits in Reihenfolge:
+  ["meme", "ort", "person", "politik", "text"]  → z. B. 10100
+
+# Ausgaben
+- CSV: `rms_per_file.csv` mit mindestens:
+  - `stem`            – Dateiname ohne Erweiterung
+  - `rms_contrast`    – RMS-Kontrast des Bildes in [0,1]
+  (Optional können zusätzliche Spalten wie `file_image`, `mask`, `label` enthalten sein, falls im Code aktiv.)
+
+# CLI / Pfade
+--input  / -i : Eingabeordner (repo-relativ oder absolut), Default: EWS/data/img/img_bin
+--out    / -o : Output-Ordner  (repo-relativ oder absolut), Default: EWS/code/kontraste/rms_per_image
+--per-file-csv : Dateiname der Ausgabedatei, Default: rms_per_file.csv
+
+# Beispiel
+python rms_per_image.py -i EWS/data/img/img_bin -o EWS/code/kontraste/rms_per_image
+
+# Hinweise
+- RMS = std(I), I in [0,1]; misst globale Helligkeits-Kontraste (frequenz- und ortsunabhängig).
+- Die 5-Bit-Maske ist **optional** und wird nur extrahiert, wenn im Dateinamen vorhanden.
+"""
+
 
 from pathlib import Path
 import argparse, os, sys
@@ -8,6 +35,9 @@ import numpy as np
 import pandas as pd
 from skimage import io, color
 
+# --------------------------------------------------------------------------------------
+# CLI / Pfade
+# --------------------------------------------------------------------------------------
 def parse_args():
     p = argparse.ArgumentParser(description="RMS-Kontrast pro Bild (minimal)")
     p.add_argument("--input","-i",

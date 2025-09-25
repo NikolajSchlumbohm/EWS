@@ -1,7 +1,50 @@
-# laplace_sets_from_csv.py
-# Baut deine 4 Vergleichs-Sets direkt aus laplace_per_file.csv
-# Erwartet Spalten: stem, lap_var_norm
-# Die 5-Bit-Maske wird aus 'stem' extrahiert (…_xxxxx).
+"""
+# laplace_per_category.py
+# Zweck
+Liest eine per-Bild-CSV mit **Laplace-Metrik** (normalisierte Laplace-Varianz) ein,
+rekonstruiert (optional) die 5-Bit-Kategorie aus dem Dateinamen und erzeugt
+**kategorienweise Auswertungen** (Aggregat-CSV, Heatmaps, optional Signifikanztests)
+für die gleichen vier Vergleichs-Sets wie bei RMS.
+
+# Eingaben
+- CSV: `laplace_per_file.csv` mit mindestens:
+  - `stem`         – Dateiname ohne Erweiterung (enthält am Ende die 5-Bit-Maske …_xxxxx)
+  - `lap_var_norm` – var(Laplace(I_σ)) / (var(I_σ) + ε), σ aus Vorverarbeitung
+- 5-Bit-Maske (optional, aber empfohlen): Reihenfolge
+  ["meme","ort","person","politik","text"], z. B. `_10100`
+
+# Ausgaben (pro Set in Unterordnern)
+- `<OUT>/<SET>/laplace_per_file.csv`  – gefilterte Zeilen des Sets
+- `<OUT>/<SET>/laplace_agg.csv`       – Aggregation je Label (count, mean, median, std, min, max)
+- `<OUT>/<SET>/heat_values_mean.png`  (bzw. `_median`) – Heatmap der Kennzahl je Kategorie
+- `<OUT>/<SET>/heat_diff_mean.png`    (bzw. `_median`) – Heatmap der absoluten Differenzen
+- `<OUT>/<SET>/significance_summary.txt` (optional) – Kruskal–Wallis-Test
+- `<OUT>/<SET>/pairwise_mwu_laplace.csv`  (optional) – Paarweise Mann–Whitney (+ BH-FDR, r_bc)
+
+# Vergleichs-Sets (vordefiniert)
+1) singletons: meme, ort, person, politik, text
+2) text-pairs + singletons: meme, ort, person, text, meme_text, ort_text, politik_text, person_text
+3) person-chain: person, person_text, person_politik, person_text_politik
+4) text_politik_meme vs. text_politik_person
+
+# CLI / Pfade
+--lap-csv   : Pfad zur per-Bild-CSV (repo-relativ oder absolut),
+              Default: EWS/code/kontraste/laplace_per_image/laplace_per_file.csv
+--out, -o   : Output-Ordner (Default: EWS/code/kontraste/laplace_per_category)
+--agg-stat  : "mean" oder "median"
+--digits    : Rundung der Anzeige (Default: 4)
+--do-stats  : Signifikanztests aktivieren
+
+# Beispiel
+python laplace_per_category.py --lap-csv EWS/code/kontraste/laplace_per_image/laplace_per_file.csv \
+                               --out EWS/code/kontraste/laplace_per_category \
+                               --agg-stat mean --do-stats
+
+# Hinweise
+- Laplace betont lokale Kanten/Feinstrukturen (Detailkontrast).
+- Labels werden bei Bedarf aus der 5-Bit-Maske in `stem` rekonstruiert.
+- Heatmap-Farben wie bei RMS (dezente Blautöne).
+"""
 
 from pathlib import Path
 import argparse, os, re, itertools
@@ -68,7 +111,7 @@ def canon_label(comps):
     s = set(comps)
     return "_".join([c for c in BIT_ORDER if c in s]) if s else "none"
 
-# ---------------- Plots (dezente Blautöne, neue API) ----------------
+# ---------------- Plots (dezente Blautöne) ----------------
 def _get_cmap(name: str):
     return mpl.colormaps.get_cmap(name)
 
