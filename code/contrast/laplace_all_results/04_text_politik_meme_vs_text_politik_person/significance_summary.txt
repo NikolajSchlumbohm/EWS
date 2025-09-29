@@ -1,2 +1,0 @@
-Kruskal–Wallis (Lap Var Norm): H=1.974, p=0.16
-Kategorien: meme_politik_text, person_politik_text

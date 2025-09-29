@@ -26,11 +26,12 @@
 % If multiple authors write a (seminar) paper, use commas or newline (\\) to separate names, e-mail addresses, ids. Examples are given as comments below. 
 
 \author{David Lika, Jan Felix Deuse, Joris Engels, Maik Philipp Paulsen \\
- Nikolaj Schlumbohm, Philip Alexander van Rickelen, Jan Schnorrenberg, Fabian Kizio, Felix Zurhausen}
+ Nikolaj Schlumbohm, Philip Alexander van Rickelen, Jan Schnorrenberg, Fabian Kizio \\
+ Felix Zurhausen, Sebastian Wixforth, Tim Niklas Nötzold}
 %\author{Maja Mustermann, Max Musterfrau} \author{First Middle Last Name\\Second Student with somewhat longer Name}
-\email{david.lika@uni-muenster.de, jan.deuse@uni-muenster.de, joris.engels@uni-muenster.de, mpaulsen@uni-muenster.de, nschlumb@uni-muenster.de, philip.van.rickelen@uni-muenster.de, jan.schnorrenberg@uni-muenster.de, fabian.kizio@uni-muenster.de, felix.zurhausen@uni-muenster.de}
+\email{david.lika@uni-muenster.de, jan.deuse@uni-muenster.de, joris.engels@uni-muenster.de, mpaulsen@uni-muenster.de, nschlumb@uni-muenster.de, philip.van.rickelen@uni-muenster.de, jan.schnorrenberg@uni-muenster.de, fabian.kizio@uni-muenster.de, fzurhaus@uni-muenster.de, swixforth@uni-muenster.de, tnoetzol@uni-muenster.de}
 % Matriculation Number
-\id{537160, 537390, 536427, 537809, 537506, 539435, 536480, 526085, 536827}
+\id{537160, 537390, 536427, 537809, 537506, 539435, 536480, 526085, 536827, 536908, 528136}
 % Information about the thesis and the course
 \professor{Prof. Dr.-Ing. Grimme }
 \supervisor{Prof. Dr.-Ing. Grimme }
@@ -71,8 +72,10 @@
 \end{quote}
 
 \begin{abstract}
-    \lipsum[1]
+In diesem Projektseminar wurde systematisch untersucht, wie visuelle Aufmerksamkeit durch Eye-Tracking erfasst, analysiert und interpretiert werden kann. Grundlage für dieses Vorhaben war ein zweistufiges Vorgehen, wobei im ersten Schritt eine explorative Analyse durchgeführt wurde, um Strukturen und Muster sichtbar zu machen. Basierend darauf folgte eine hypothesengeleitete Untersuchung spezifischer Fragestellungen. Besonders auffällige Ergebnisse, die sich aus den gesammelten Eye-Tracking Daten ableiten lassen, sind beispielweise die aufmerksamkeitsbinde Eigenschaft von Textelementen oder das Beobachten von Ermüdungseffekten im Laufe der Betrachtungszeit. Es lässt sich beobachten, dass Kontrastmetriken signifikant mit Fixationsmustern korrelieren. Rekurrenzanalysen weisen darauf hin, dass Gesichter und Texte charakteristische Wiederholungsmuster hervorrufen, wohingegen Landschaften zerstreutes und exploratives Blickverhalten erzeugen. Insgesamt verdeutlicht die Studie, dass Blickverhalten nicht zufällig ist, sondern durch konkrete Bildmerkmale und den zeitlichen Kontext systematisch bestimmt wird. Die Ergebnisse liefern methodische und inhaltliche Impulse für die weitere Forschung und die Anwenung multimodaler Ansätze.  
 \end{abstract}
+
+
 
 \section{Einführung}
 
@@ -84,14 +87,14 @@ Fixationen und Sakkaden ergeben. Dazu wurden grundlegende Kennwerte betrachtet, 
 die Verteilung der Blickpunkte über die Stimuli hinweg oder die zeitliche Dynamik des Blickverhaltens.
 Diese explorative Phase diente insbesondere dazu, erste Einsichten in die Daten zu gewinnen,
 mögliche Einflussfaktoren zu identifizieren und relevante Variablen für eine weiterführende Analyse einzugrenzen.
-Gleichzeitig konnten wir dadurch prüfen, ob die Datenqualität den Anforderungen entspricht und ob sich erwartungsgemäß
+Gleichzeitig konnten wir dadurch prüfen, ob die Datenqualität den Anforderungen entspricht und ob sich erwartungsgemä{\ss}
 interpretierbare Strukturen abzeichnen. 
 
 Aufbauend auf diesen ersten Befunden folgte eine systematische Analyse.
 Während die explorative Untersuchung noch eher offen und hypothesengenerierend angelegt war,
 stand in diesem zweiten Schritt die gezielte Überprüfung einer klar formulierten Fragestellung im Vordergrund.
 Auf Basis der im explorativen Teil gewonnenen Einsichten formulierten wir eine spezifische Hypothese,
-die sich auf ein bestimmtes Muster im Blickverhalten bezog. Diese Hypothese wurde anschließend mit geeigneten
+die sich auf ein bestimmtes Muster im Blickverhalten bezog. Diese Hypothese wurde anschlie{\ss}end mit geeigneten
 statistischen Verfahren überprüft. Dadurch konnten wir nicht nur unsere anfänglichen Beobachtungen absichern,
 sondern auch präzise Aussagen darüber treffen, ob die vermuteten Zusammenhänge tatsächlich empirisch gestützt werden können. 
 
@@ -102,7 +105,53 @@ mit wissenschaftlicher Stringenz bei der Hypothesenprüfung und ermöglicht dami
 Interpretation der Eye-Tracking-Daten
 
 \section{Clustern}
-\textbf{Hypothese:} Fixationsmuster lassen sich in klar unterscheidbare Cluster einteilen, die mit den Bildmerkmalen korrespondieren. 
+Die Clusteranalyse fasst die Fixations-Zusammenfassungen pro Bild zu Verhaltensarchetypen zusammen. Eine Kreuztabelle aus Clustern und Labels ordnet alle 152 annotierten Stimuli über drei Cluster hinweg und zeigt, wie Bilder den Lösungsraum füllen, der die weitere Interpretation steuert.
+Die Merkmalsvektoren kombinieren verschiedene Blickparameter: Fixationsdauern in frühen und späten Dritteln, mittlere und mediane Betrachtungszeiten, Scanpfadlängen, Blickstreuung über 68 \%- und 95 \%-Konfidenzellipsen, Fixationsanzahlen pro Teilnehmer, mittlere Pupillengrö{\ss}e und gesamte Betrachtungszeit. So entsteht ein mehrdimensionales Profil für jedes Bild. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Abb1.png}
+    \caption{}
+    \label{fig:cluster1}
+\end{figure}
+ 
+Um die optimale Anzahl an Clustern zu bestimmen, wurden sowohl das \textbf{Elbow}- als auch das \textbf{Silhouette}-Verfahren verwendet: Die Trägheit (Inertia) fiel deutlich von 983,8 auf 695,4 zwischen k=1 und k=3 und nahm danach nur noch langsam ab. Die Silhouette-Werte waren bei k=2 mit 0,437 am höchsten, blieben bei k=3 aber stabil bei 0,231. Auf Basis des Elbow-Kriteriums wurde daher k=3 gewählt, auch wenn die Cluster bei k=2 etwas homogener waren. \ref{fig:cluster1} zeigt beide Kurven nebeneinander und verdeutlicht die Entscheidungsgrundlage für drei Cluster.
+
+ \begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Abb 2.png}
+    \caption{}
+    \label{fig:cluster2}
+\end{figure}
+
+\textit{Cluster 0} repräsentiert ein „bedachtes Betrachten“: Fixationsdauern liegen mit durchschnittlich 299,7 ms hoch, sowohl im frühen als auch im späten Zeitfenster über 285 ms. Gleichzeitig sind Scanpfade mit 2.664 px kurz und die Blickstreuung am geringsten – Hinweise auf fokussierte Aufmerksamkeit auf wenige Bildbereiche. Von seinen 62 Bildern stammen 27 aus der Kategorie Person und 12 aus Ort, ergänzt durch Meme- und Politik-Overlays. Dieses Muster verknüpft konzentrierte Aufmerksamkeit mit sozial und räumlich geprägtem Bildmaterial. (siehe \ref{fig:cluster3})
+\textit{Cluster 1} steht für „schnelles Scannen“: Teilnehmende fixieren im Schnitt 38,7 Mal pro Bild und betrachten es 11,16 Sekunden, doch einzelne Fixationen dauern mit 222,3 ms kürzer, die Pupillen verengen sich auf 3,57 mm. Dies deutet auf wiederholte, schnelle Blickwechsel unter kognitiver Belastung hin. Hier dominieren textlastige Kompositionen – etwa zehn Meme-Text-, neun Meme-Politik-Text- und sechs Person-Politik-Bilder –, was den Aufwand für die Verarbeitung mehrschichtiger Inhalte widerspiegelt. (siehe \ref{fig:cluster3})
+\textit{Cluster 2 } bildet einen „ausgeglichenen Archetyp“: Fixationsdauern liegen bei 262,9 ms, die Scanpfade verlängern sich auf 3.157 px, und die Pupillen weiten sich leicht auf 3,68 mm. Diese Mischung spricht für eine integrierte, aber weniger intensive Exploration. Unter den 52 Bildern dominieren 19 Person-Szenen, doch auch Ort-Text- und Meme-Bilder sind vertreten. Das Cluster fungiert als flexibler Basisfall für verschiedene semantische Kontexte. (siehe \ref{fig:cluster3})
+
+ \begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Abb 3.png}
+    \caption{}
+    \label{fig:cluster3}
+\end{figure}
+
+Abschlie{\ss}end lassen sich für die drei Cluster folgende Schwerpunkte festhalten:
+\begin{itemize}
+    \item \textit{Cluster 0} : höchste Fixationsdauern und grö{\ss}te Pupillengrö{\ss}e
+    \item \textit{Cluster 1}: Spitzenwerte bei Fixationsanzahl und Gesamtbetrachtungszeit
+    \item \textit{Cluster 2}: mittlere Werte bei Pupillengrö{\ss}e und Fixationsanzahl und bildet den Durchschnitt zwischen den Extremen
+\end{itemize}
+
+Abbildung 4 zeigt die standardisierten Clusterzentren als Koordinatensystem und erlaubt so den visuellen Vergleich zeitlicher, räumlicher und physiologischer Muster.
+
+ \begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Abb 4.png}
+    \caption{}
+    \label{fig:cluster4}
+\end{figure}
+
+Insgesamt wandelt das Clustering-Analyse die hochdimensionalen Blickdaten in drei stabile Aufmerksamkeitsstrategien um, die eng mit den Label-Zusammensetzungen und den verwendeten Entscheidungsmetriken verknüpft sind. Durch die Kombination aus interpretierbaren Clusterzentren, verlässlichen Verfahren zur Bestimmung der Clusterzahl und label-spezifischen Mitgliedszahlen entsteht ein Workflow, der eine solide Grundlage bietet, um Blickverhalten und Inhaltskategorien in vergleichenden oder längsschnittlichen Studien systematisch miteinander zu verbinden.
 
 \section{Betrachtungsdauer}
 \subsection{Zeitpunkt}
@@ -133,8 +182,8 @@ Weitere Daten dieses Modells sind wie folgt:
 
 
 Die sehr kleine Standardabweichung (SE) zeugt von einer sehr präzisen Schätzung der Steigung.  
-Außerdem ist der t-Wert extrem (negativ) groß und die p-Werte beide extrem nahe an null,
-was auf einen hochsignifikanten negativen Trend schließen lässt. Somit bestätigen unsere
+Au{\ss}erdem ist der t-Wert extrem (negativ) gro{\ss} und die p-Werte beide extrem nahe an null,
+was auf einen hochsignifikanten negativen Trend schlie{\ss}en lässt. Somit bestätigen unsere
 Daten die oben genannte Hypothese. In Abbildung \ref{fig:lineareAppox} ist eine lineare Approximation der
 Betrachtungsdauer zu sehen. Sie veranschaulicht die Bestätigung unserer Hypothese. 
 
@@ -160,9 +209,24 @@ Zwischen unseren Kategorien (Personen, Politik, Memes, Orte und Text) sowie ihre
 fallen bereits einige Kategorien als besonders prominent auf. Generell ist auffällig, dass 
 Kombinationen mit Text längere Betrachtungsdauer aufweisen als der Konterpart ohne Text (Abb. \ref{fig:katDauer}) 
 
+\begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{figures/Bild2.png}
+    \caption{Die Kategorien mit der jeweiligen durchschnittlichen Betrachtungsdauern}\label{fig:katDauer}
+\end{figure*}
+
+
 Diese Tatsache hing nach näherer Betrachtung allerdings im Wesentlichen von der Menge an Text ab,
 den die Probanden in der Regel sorgfältig lasen. Abb. \ref{fig:katMatrix} zeigt die Betrachtungsdauer der einzelnen 
 Kategorien aufgeschlüsselt auf Text und keinen Text. 
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild3.png}
+    \caption{Jedes Feld zeigt die Kombination zweier Kategorien, mit dem Wert für "Text" linksoben und "Ohne Text" rechtsunten}\label{fig:katMatrix}
+\end{figure}
+
 
 Daher versuchten wir, den Einfluss der Textlänge herauszufiltern. Als erste Lösung bereinigten 
 wir die Betrachtungsdauer um die Anzahl der Wörter mit folgender Formel:
@@ -173,7 +237,14 @@ wir die Betrachtungsdauer um die Anzahl der Wörter mit folgender Formel:
 
 
 Die resultierenden relativen Betrachtungsdauern sind in Abbidlung \ref{fig:bild27} dargestellt, 
-wobei ein Vergleich mit Bildern ohne Text wegen fehlender Vergleichbarkeit außen vor gelassen wurde.
+wobei ein Vergleich mit Bildern ohne Text wegen fehlender Vergleichbarkeit au{\ss}en vor gelassen wurde.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild31.png}
+    \caption{Median der Betrachtungsdauer pro Gruppe}
+    \label{fig:bild27}
+\end{figure}
 
 Eine Möglichkeit, um den Einfluss jeder Kategorie auf die Betrachtungsdauer zu ermitteln, 
 ist die Regression. In unserem Fall lag eine Zensierung der Daten, also eine Beschränkung 
@@ -182,7 +253,7 @@ ungeeignet schien. Eine Alternative stellte die Überlebenszeitanalyse und insbe
 für beschleunigte Ausfallzeiten (AFT) dar, das mit zensierten Werten umgehen kann.
 
 Wir verglichen die AICs verschiedener AFT-Modelle und wählten den LogNormal-AFT-Fitter, 
-der den besten AIC besaß. Die Ergebnisse zeigt Tabelle 1. Es stellte sich heraus, dass die Anzahl 
+der den besten AIC besa{\ss}. Die Ergebnisse zeigt Tabelle 1. Es stellte sich heraus, dass die Anzahl 
 der Wörter mit einer Sekunde je weiterem Wort und die Kategorie Politik mit zusätzlichen 1,07 Sekunden 
 bei Auftreten signifikant auf die Betrachtungsdauer einwirken.
 
@@ -214,23 +285,23 @@ Dazu kombinieren wir zwei Bildkontrast-Metriken (RMS und Laplace) mit über Pers
 
 \paragraph{RMS-Kontrast:} 
 RMS-Kontrast misst die globale Helligkeitsspanne eines Bildes. Mathematisch ist das die Standardabweichung der auf [0, 1] normalisierten Grauwerte. 
-Hoher RMS heißt große Unterschiede zwischen hell und dunkel, unabhängig davon, wo sie im Bild liegen \cite{Kukkonen1993}.. 
+Hoher RMS hei{\ss}t gro{\ss}e Unterschiede zwischen hell und dunkel, unabhängig davon, wo sie im Bild liegen \cite{Kukkonen1993}.. 
 
 \paragraph{Laplace:}
-Laplace misst Kanten/Feinstruktur/Schärfe. Pipeline: (a) optional Gauß-Glättung ($\sigma$) zur Rauschreduktion, (b) Laplace-Filter, (c) Varianz des Laplace-Bildes, 
+Laplace misst Kanten/Feinstruktur/Schärfe. Pipeline: (a) optional Gau{\ss}-Glättung ($\sigma$) zur Rauschreduktion, (b) Laplace-Filter, (c) Varianz des Laplace-Bildes, 
 geteilt durch die Varianz des (geglätteten) Intensitätsbildes. Hoher Wert bedeutet viele/kräftige Kanten, feine Details \citep{Starnes2023}. 
 
 RMS misst den globalen Helligkeits-Kontrast eines Bildes (wie stark die Pixelwerte insgesamt um ihren Mittelwert schwanken),
 während Laplace den lokalen Kanten-/Detail-Kontrast erfasst (zweite Ableitung vom Helligkeitsgradienten: starke Reaktion genau dort, wo Intensität schnell wechselt).
 
 \subsection{Fixationsmetriken}
-Als Fixationsmetriken verwenden wir pro Bild über alle Personen robust aggregierte Kennwerte: Die Blickdaten werden mit einem getrimmten Mittel (5–95\,\%) zusammengefasst, um Ausreißer zu dämpfen. 
+Als Fixationsmetriken verwenden wir pro Bild über alle Personen robust aggregierte Kennwerte: Die Blickdaten werden mit einem getrimmten Mittel (5–95\,\%) zusammengefasst, um Ausrei{\ss}er zu dämpfen. 
 \textit{n\_fix\_mean\_trim} bezeichnet dabei die mittlere Anzahl der Fixationen pro Bild, \textit{tot\_dur\_mean\_trim} die mittlere Gesamtdauer aller Fixationen in Millisekunden und \textit{med\_dur\_mean\_trim} den mittleren Median der Fixationsdauer (ebenfalls in ms), 
 der besonders unempfindlich gegenüber extremen Einzelwerten ist.
 
 
 \subsection{Korrelationen}
-Zur Einordnung prüfen wir mittels Pearson-Korrelation, ob und wie stark die Kontrastmaße unserer Bilder (RMS bzw. Laplace) linear mit den Metriken (Fixationsanzahl und -dauer) zusammenhängen.
+Zur Einordnung prüfen wir mittels Pearson-Korrelation, ob und wie stark die Kontrastma{\ss}e unserer Bilder (RMS bzw. Laplace) linear mit den Metriken (Fixationsanzahl und -dauer) zusammenhängen.
 Die wichtigsten Zusammenhänge mit Signifikanzniveau von 0,05:
 siehe Abbildung \ref{fig:bild4} und \ref{fig:bild5} bis \ref{fig:bild9}
 
@@ -252,9 +323,9 @@ dass Kanten und Feinstruktur ein besonders wirksamer Treiber der visuellen Aufme
 Diese Befunde sind mit Ergebnissen aus der Salienz-Forschung vereinbar und knüpfen 
 an die Literatur zu vorhersagbaren Blickbewegungen an \citep{Foulsham2008}. 
 
-Wichtig ist eine methodische Einordnung: Eine Korrelation beweist keine Kausalität. Kategorien wie „Text“ oder „Person“ können zugleich den Kontrast und das Blickverhalten beeinflussen und so den Zusammenhang verzerren. Sinnvoll sind deshalb Analysen innerhalb homogener Kategorien, multiple Regressionen mit RMS, Laplace und Kategorie-Indikatoren, robuste Rangkorrelationen (Spearman) sowie Sensitivitätsanalysen für die gewählte Glättung beim Laplace-Maß. 
+Wichtig ist eine methodische Einordnung: Eine Korrelation beweist keine Kausalität. Kategorien wie „Text“ oder „Person“ können zugleich den Kontrast und das Blickverhalten beeinflussen und so den Zusammenhang verzerren. Sinnvoll sind deshalb Analysen innerhalb homogener Kategorien, multiple Regressionen mit RMS, Laplace und Kategorie-Indikatoren, robuste Rangkorrelationen (Spearman) sowie Sensitivitätsanalysen für die gewählte Glättung beim Laplace-Ma{\ss}. 
 
-Als zentrale Mitnahme lassen sich beide Kontrastmaße komplementär nutzen. RMS erfasst den globalen Helligkeitskontrast des Bildes, während Laplace den Kanten- und Detailkontrast quantifiziert. In Kombination erklären diese Maße plausibel, warum bestimmte Bilder insgesamt häufiger und länger fixiert werden, obwohl einzelne Fixationen tendenziell kürzer ausfallen. Ein naheliegender nächster Schritt ist eine reguläre, vorzugsweise kreuzvalidierte lineare Regression, um Fixationskennzahlen aus RMS- und Laplace-Werten vorherzusagen und den jeweiligen Beitrag beider Prädiktoren sauber zu trennen.
+Als zentrale Mitnahme lassen sich beide Kontrastma{\ss}e komplementär nutzen. RMS erfasst den globalen Helligkeitskontrast des Bildes, während Laplace den Kanten- und Detailkontrast quantifiziert. In Kombination erklären diese Ma{\ss}e plausibel, warum bestimmte Bilder insgesamt häufiger und länger fixiert werden, obwohl einzelne Fixationen tendenziell kürzer ausfallen. Ein naheliegender nächster Schritt ist eine reguläre, vorzugsweise kreuzvalidierte lineare Regression, um Fixationskennzahlen aus RMS- und Laplace-Werten vorherzusagen und den jeweiligen Beitrag beider Prädiktoren sauber zu trennen.
 
 \section{Wiederholte Betrachtung von Bildelementen}
 
@@ -291,7 +362,7 @@ Fixationssequenzen (\textit{determinism}) und desto seltener werden AOIs im Deta
 
 Hohe \textit{determinism} Werte können sich andererseits bspw. 
 aus dem wiederholten Lesen von Text ergeben (Abb. \ref{fig:Bild13a} und ref{fig:Bild13b}). 
-Zusätzlich können hohe Ausreißer entstehen, wenn sich der Proband nur eine AOI anschaut (Abb. \ref{fig:Bild14a} und \ref{fig:Bild14b}). 
+Zusätzlich können hohe Ausrei{\ss}er entstehen, wenn sich der Proband nur eine AOI anschaut (Abb. \ref{fig:Bild14a} und \ref{fig:Bild14b}). 
 
 \subsubsection{Vergleich zwischen Bildkategorien}
 In Abbildung \ref{fig:bild15} lässt sich erkennen, dass Bilder mit Text eine höhere Anzahl an Fixationen haben, 
@@ -326,13 +397,13 @@ Interpretation der Ergebnisse nicht alle Auffälligkeiten und Zusammenhänge beh
 Dieses Teil widmet sich der Blickverhaltensanalyse innerhalb der Personen Segmentation mit Hilfe des Segmentation Models 
 YOLOv8 verbunden mit den gesammelten Eye-Tracking Daten. Aus den validen 7.443 aufgezeichneten Versuchen haben wir das 
 Bincode-Suffix jedes Identifikators entschlüsselt und nur Stimuli beibehalten die Teil der Personenkategorie waren. 
-Die Versuche wurden anschließend auf nicht leere Masken überprüft; 48 Bilder mit leeren Vorhersagen wurden verwor-fen, 
+Die Versuche wurden anschlie{\ss}end auf nicht leere Masken überprüft; 48 Bilder mit leeren Vorhersagen wurden verwor-fen, 
 sodass 4.593 Versuche aus 104 einzigartigen Stimuli übrig blieben. Diese Filterung stellte sicher, dass nachgelagerte 
 Schätzungen echte Personeninhalte abfragten und die Interpretation maskenabhängiger Metriken geschützt wurde.
 
 Für die verbleibenden Versuche haben wir die Blickkoordinaten auf Segmentierungspixel abgebildet, die Anzahl 
-und Dauer der Fixierungen innerhalb und außerhalb der Masken gezählt und diese Anteile nach Maskenfläche normalisiert. 
-Die durchschnittliche Maskenabdeckung betrug 0,378 der Stimulusebene, was als Null-Erwartung bei gleichmäßiger 
+und Dauer der Fixierungen innerhalb und au{\ss}erhalb der Masken gezählt und diese Anteile nach Maskenfläche normalisiert. 
+Die durchschnittliche Maskenabdeckung betrug 0,378 der Stimulusebene, was als Null-Erwartung bei gleichmä{\ss}iger 
 Betrachtung diente. Dennoch richteten die Beobachter 61,2 Prozent ihrer Fixationen auf die Personenbereiche, 
 was zu einem mittleren Überschuss von 0,234 über der Flächenbasislinie führte. Zeitbasierte Messungen spiegelten 
 dieses Muster wider: Die Teilnehmer verbrachten 65,5 Prozent ihrer Verweildauer auf den Masken, 0,263 mehr als der 
@@ -343,7 +414,7 @@ mehr als eins, was die Konsistenz der Aufmerksamkeitsverzer-rung belegt.
 Abbildung \ref{fig:bild21} fasst die Verteilung der Fixationsüberschüsse zusammen. Das Histogramm liegt überwiegend rechts von Null, 
 da 3.943 der 4.593 Versuche einen positiven Überschuss ergeben. Der lange rechte Teil spiegelt Szenen wider, 
 in denen kompakte Personensegmente den Blick monopolisierten. Defizite, die in 650 Versuchen auftreten, 
-entstehen in der Regel, wenn Masken große Hintergrundbereiche abdecken, die die Bereichsnormalisierung verwässern, 
+entstehen in der Regel, wenn Masken gro{\ss}e Hintergrundbereiche abdecken, die die Bereichsnormalisierung verwässern, 
 doch selbst in diesen Fällen wird den Personen immer noch beträchtliche absolute Aufmerksamkeit geschenkt.
 
 \begin{figure}[h]
@@ -356,7 +427,7 @@ Abbildung \ref{fig:bild22} stellt den Fixationsanteil gegenüber der Maskenabdec
 was zeigt, dass die Fixationsanteile über das gesamte Abdeckungsspektrum hinweg die Maskenflächen übersteigen. Masken, 
 die weniger als 20 Prozent der Pixel einnahmen, zogen immer noch mehr als 40 Prozent der Fixationen auf sich, während Masken, 
 die mehr als die Hälfte des Bildschirms bedeckten, überproportional vertreten blieben. Die Streuung bestätigt somit, 
-dass die Segmentierungspipeline semantisch reichhaltige Bereiche isoliert, die den Betrachter unabhängig von ihrer Größe leiten.
+dass die Segmentierungspipeline semantisch reichhaltige Bereiche isoliert, die den Betrachter unabhängig von ihrer Grö{\ss}e leiten.
 
 \begin{figure}[h]
     \centering
@@ -371,7 +442,7 @@ Auf Bildebene erreichten 37 der 94 analysierten Personenbilder durchschnittliche
 mindestens 0,300, während nur neun leicht unter Null fielen, typischerweise wenn Masken diffuse Hintergründe 
 umhüllten oder Figuren teilweise verdeckt waren. Diese Ergebnisse bestätigen, dass computergestützt 
 erkannte Personen eng mit den Blickprioritäten des Menschen übereinstimmen und bringen eine kleine 
-Gruppe von Ausreißern hervor für weitere qualitative Folgeuntersuchungen. Insgesamt zeigt die 
+Gruppe von Ausrei{\ss}ern hervor für weitere qualitative Folgeuntersuchungen. Insgesamt zeigt die 
 Integration von Segmentierung bei Eye-Tracking, dass Masken den fokalen Inhalt der betrachteten 
 Szenen erfassen und dass die Betrachter diesen Bereichen wesentlich mehr Aufmerksamkeit schenken, als die 
 Oberflächenabdeckung allein vermuten lässt.
@@ -380,26 +451,44 @@ Oberflächenabdeckung allein vermuten lässt.
  
 \textbf{Hypothese:} Scanpaths von Bildern einer Kategorie sind ähnlicher untereinander als Scanpaths von Bildern anderer Kategorien.
 
---- Variability (Intra-Stimulus Distance) ---
- 
-Most VARIABLE Stimulus:      'id086'
-  - Average distance between its probands: 0.5394
-  - Interpretation: Gaze behavior for this stimulus was the most inconsistent across different people.
- 
-Most CONSTANT Stimulus:      'id144'
-  - Average distance between its probands: 0.2823
-  - Interpretation: Gaze behavior for this stimulus was the most consistent and predictable across people.
- 
- 
---- Uniqueness (Inter-Stimulus Distance) ---
- 
-Most UNIQUE ('Distant') Stimulus: 'id008'
-  - Average distance to all other stimuli: 0.5445
-  - Interpretation: The gaze behavior for this stimulus was the most distinct from the typical gaze behavior seen across the entire dataset.
- 
-Most AVERAGE ('Typical') Stimulus: 'id012'
-  - Average distance to all other stimuli: 0.4691
-  - Interpretation: The gaze behavior for this stimulus was the most representative of the overall average gaze behavior.
+Die MultiMatch-Methode (Jarodzka et al., 2010; Dewhurst et al., 2012) dient dem Vergleich zweier Scanpaths untereinander. Dazu werden die Scanpaths als Reihen von Sakkadenvektoren dargestellt, Fixationen sind die “Endpunkte” der Vektoren. Die Ähnlichkeit wird in fünf Dimensionen dargestellt: Form, Länge, Position, Richtung und Betrachtungsdauer. 
+
+
+
+Der Algoriithmus besteht aus fünf Schritten: 
+\begin{enumerate}
+	\item  Vektorisierung: Die Fixationen werden in Sakkadenvektoren mit Polarkoordinaten umgewandelt. 
+	\item  Vereinfachung: Kleine oder kollineare Sakkaden werden zusammengefasst, um Rauschen zu reduzieren. 
+	\item  Ausrichtung: Scanpaths werden über einen gewichteten Graphen abgeglichen. Dabei werden ähnliche Sakkaden unter Beibehaltung der zeitlichen Reihenfolge zugeordnet.
+	\item Selektion: Der Dijkstra-Algorithmus bestimmt die Ausrichtung mit den geringsten Gesamtkosten. 
+	\item Ähnlichkeitsberechnung: Die gepaarten Sakkaden werden verglichen und median-normalisierte Werte (0–1) für jede Dimension berechnet.
+
+\end{enumerate}
+
+
+Alle Scanpaths wurden paarweise verglichen. Dadurch ergab sich eine etwa 7.000 × 7.000 × 5 gro{\ss}e Ähnlichkeitsmatrix für den gesamten Datensatz, was einen Vergleich aller produzierten Scanpaths ermöglichte. Es zeigte sich, dass Stimulus id086 über alle Probanden hinweg (intra-Stimulus) das unterschiedlichste und Stimulus id144 das konstanteste Blickverhalten aufwies. Dies deckt sich mit der Erwartung, dass textbasierte Inhalte vorhersehbarere Blickmuster produzieren. Ein Vergleich der Stimuli untereinander (inter-Stimulus) ergab, dass Stimulus id008 hinsichtlich des Blickmusters am „einzigartigsten” war, während Stimulus id012 das durchschnittlichste und somit über den Datensatz repräsentativste Blickmuster zeigte. Dies kann vermutlich ebenfalls auf den hohen Textanteil, der fast das gesamte Bild umspannt, zurückgeführt werden. 
+
+Figur \ref{fig:bild22a} zeigt eine zweidimensionale Darstellung der relativen Ähnlichkeit aller Scanpaths und somit den gesammelten Datensatz, eingefärbt nach Stimulus. Die Grö{\ss}e der Punkte stellt die Gesamtdauer der Fixationen dar. Hier lässt sich erkennen, dass gleiche Stimuli über Probanden hinweg erwartungsgemä{\ss} oft ähnliche Blickmuster hervorgerufen haben.  
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/id008_overlay.jpg}
+	\caption{Aggregierte Heatmap des Bildes mit ID 008 }\label{fig:bildid008}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/id144_overlay.jpg}
+	\caption{Aggregierte Heatmap des Bildes mit ID  ID 144}\label{fig:bildid144}
+\end{figure}
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/id012_overlay.jpg}
+	\caption{Aggregierte Heatmap des Bildes mit ID 012}\label{fig:bildid012}
+\end{figure}
+
 
 
 \section{Text}
@@ -427,7 +516,7 @@ Die X-Achse beschreibt den Textanteil, während die Y-Achse den Fixation-auf-Tex
 Sollte Text keinen Einfluss auf das Blickverhalten haben sollte der Fixation-auf-Text Anteil im Mittel 
 etwa gleich dem Textanteil sein. Sollte der Fixationsanteil auf Text allerdings erkennbar höher sein, 
 als der Textanteil kann ein Zusammenhang angenommen werden.
-Erkennbar ist, dass die Punkte (außer einzelne Ausreißer im Bereich der niedrigen Textanteile) 
+Erkennbar ist, dass die Punkte (au{\ss}er einzelne Ausrei{\ss}er im Bereich der niedrigen Textanteile) 
 alle deutlich links von der Linie liegen. Demnach kann ein Zusammenhang angenommen werden.
 
 \subsection{Hypothese 2}
@@ -438,7 +527,7 @@ Dazu wurden die Bilder in verschiedene Gruppen unterteilt:
 \begin{itemize}
     \item Nur Text: Text im Vordergrund. Der Hintergrund ist generisch und häufig einfarbig. 
     \item Text Hauptbestandteil: Text im Vordergrund. Der Hintergrund hat nichts mit dem Inhalt zu tun. Häufig handelt es sich um Landschaftsbilder. 
-    \item Text/Bild Kombination: Text und Bild hängen zusammen. Da die Bilder der Gruppe große Unterschiede aufweisen wird der Abschnitt weiter unterteilt in Memes und Zitate mit Person (Nur Bilder mit Zitat und zugehöriger Person).
+    \item Text/Bild Kombination: Text und Bild hängen zusammen. Da die Bilder der Gruppe gro{\ss}e Unterschiede aufweisen wird der Abschnitt weiter unterteilt in Memes und Zitate mit Person (Nur Bilder mit Zitat und zugehöriger Person).
     \item Text Hintergrund: Der Text spielt nur eine Untergeordnete Rolle. 
 \end{itemize}
 
@@ -460,7 +549,7 @@ Text das primäre Bildelement und der inhaltslose Hintergrund lenkt offenbar nur
 Um das Verhältnis zwischen den Variablen weiter zu untersuchen ist in Abbildung \ref{fig:bild25} die Rechnung 
 (Fixationen-auf-Text Anteil) / (Text Anteil) für die verschiedenen Gruppen aufgeschlüsselt. 
 Hier ist vor allem der Wert von Text Hintergrund auffällig. Diese Kategorie hat den niedrigsten 
-Text Anteil, allerdings ist der Fixationen-auf-Text Anteil prozentual am höchsten. Das heißt, 
+Text Anteil, allerdings ist der Fixationen-auf-Text Anteil prozentual am höchsten. Das hei{\ss}t, 
 dass überproportional viel Zeit auf dem Wenigen Text dieser Bilder geschaut wird und das, 
 obwohl Text in diesen Kategorien lediglich eine Untergeordnete Rolle spielt. Auch auffällig 
 ist der vergleichsweise niedrige Wert von Memes. Diese haben einen nur minimal geringeren 
@@ -478,19 +567,19 @@ Das spricht dafür, dass das Bild hier wichtiger ist als bei den meisten anderen
 
 \subsubsection{Ergebnisse}
 Zuletzt wird das Blickverhalten über den Zeitlichen Verlauf betrachtet. In Abbildung \ref{fig:bild26} kann der 
-Anteil der Fixationen-auf-Text für jeden Zeitpunkt betrachtet werden. Das heißt, dass zum Beispiel 
+Anteil der Fixationen-auf-Text für jeden Zeitpunkt betrachtet werden. Das hei{\ss}t, dass zum Beispiel 
 für Memes 40\% aller Gaze Points an der Stelle 200 auf Text lagen. 
 
 
 Im Zeitlichen Verlauf ist ein starker Trend zu erkennen. Anfangs steigt der gaze-point-auf-Text Anteil stark an und erreicht 
-bereits in den ersten Sekunden seinen Hochpunkt. Anschließend sinkt der Anteil wieder relativ schnell. 
+bereits in den ersten Sekunden seinen Hochpunkt. Anschlie{\ss}end sinkt der Anteil wieder relativ schnell. 
 Diese Ausprägung ist in verschiedenen Stärken zu beobachten. Besonders auffällig ist hierbei die Kategorie Memes. 
 Bereits bei Gaze-point 50 erreicht diese den Hochpunkt von etwa 70\%. Im Verlauf der nächsten Sekunden 
 mehr als halbiert sich dieser Anteil auf nur noch etwa 30\%. Das liegt vermutlich daran, dass zuerst der Text 
-gelesen und anschließend das dazugehörige Bild betrachtet wird. Bei Zitaten dauert der Hochpunkt länger an, 
-bevor auch hier der Anteil wieder stark abfällt. Die verlängerte Hochphase kann mit der größeren Menge an Text 
+gelesen und anschlie{\ss}end das dazugehörige Bild betrachtet wird. Bei Zitaten dauert der Hochpunkt länger an, 
+bevor auch hier der Anteil wieder stark abfällt. Die verlängerte Hochphase kann mit der grö{\ss}eren Menge an Text 
 und zusammenhängenden Sätzen erklärt werden. Einzig die nur Text Kategorie verzeichnet kaum Schwankungen, 
-was Sinn ergibt, da es außer Text keinen Inhalt gibt, der Betrachtet werden kann. 
+was Sinn ergibt, da es au{\ss}er Text keinen Inhalt gibt, der Betrachtet werden kann. 
 
 \section{Fazit}
 
@@ -505,7 +594,7 @@ Zentrale Befunde lassen sich wie folgt zusammenfassen:
     \item Die Betrachtungsdauer nimmt im Verlauf der Bildpräsentation signifikant ab, 
     was auf Ermüdungseffekte oder eine zunehmende Sättigung bei den Teilnehmenden hindeutet. 
     \item Bildkategorien – insbesondere das Vorhandensein von Text oder Personen – 
-    beeinflussen das Blickverhalten maßgeblich. Text zieht die Aufmerksamkeit in besonderem Maße auf sich, 
+    beeinflussen das Blickverhalten ma{\ss}geblich. Text zieht die Aufmerksamkeit in besonderem Ma{\ss}e auf sich, 
     wobei die Wirkung je nach Kontext (Hintergrundtext, Meme, Zitat) variiert. 
     \item Kontrastmerkmale wie RMS und Laplace korrelieren signifikant mit Fixationsmustern 
     und deuten auf ein exploratives Scanning-Verhalten bei detailreichen Bildern hin. 
@@ -522,9 +611,9 @@ Die Kombination aus klassischen Kennwerten, statistischen Modellierungen und inn
 wie der Rekurrenzanalyse oder der Segmentierung eröffnet dabei neue Perspektiven für die 
 Aufmerksamkeitsforschung. 
 
-Für zukünftige Arbeiten erscheint es vielversprechend, die Ansätze durch größere Datensätze, 
+Für zukünftige Arbeiten erscheint es vielversprechend, die Ansätze durch grö{\ss}ere Datensätze, 
 eine stärkere Berücksichtigung individueller Unterschiede sowie multimodale Methoden (z.\,B. EEG, 
-Verhaltensmaße) zu erweitern. So ließe sich noch präziser untersuchen, wie Menschen visuelle 
+Verhaltensma{\ss}e) zu erweitern. So lie{\ss}e sich noch präziser untersuchen, wie Menschen visuelle 
 Informationen wahrnehmen, verarbeiten und bewerten.  
 
 Unsere Studie zeigt: Eye-Tracking ermöglicht nicht nur die Erfassung von Blickbewegungen, 
@@ -563,13 +652,13 @@ und trägt damit zu einem besseren Verständnis menschlicher Informationsverarbe
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild5.png}
-    \caption{ Zwischen dem RMS-Kontrast und der mittleren Gesamtdauer der Fixationen zeigte sich eine signifikante positive Korrelation (r $\approx$ 0,25; p < 0,01). Das heißt Bilder mit höherem globalen Kontrast werden insgesamt länger betrachtet (summierte Fixationsdauer steigt).
+    \caption{ Zwischen dem RMS-Kontrast und der mittleren Gesamtdauer der Fixationen zeigte sich eine signifikante positive Korrelation (r $\approx$ 0,25; p < 0,01). Das hei{\ss}t Bilder mit höherem globalen Kontrast werden insgesamt länger betrachtet (summierte Fixationsdauer steigt).
 }\label{fig:bild5}
 \end{figure}
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild6.png}
-    \caption{ Zwischen dem RMS-Kontrast und der mittleren Median-Fixationsdauer zeigte sich eine signifikante negative Korrelation (r $\approx$ $-0,33$; p < 0,01). Das heißt bei höherem globalen Kontrast fallen die typischen (medianen) Fixationen kürzer aus.
+    \caption{ Zwischen dem RMS-Kontrast und der mittleren Median-Fixationsdauer zeigte sich eine signifikante negative Korrelation (r $\approx$ $-0,33$; p < 0,01). Das hei{\ss}t bei höherem globalen Kontrast fallen die typischen (medianen) Fixationen kürzer aus.
  }\label{fig:bild6}
 \end{figure}
 \begin{figure}[h]

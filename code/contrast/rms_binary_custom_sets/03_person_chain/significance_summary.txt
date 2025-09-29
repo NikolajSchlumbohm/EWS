@@ -1,2 +1,0 @@
-Kruskal–Wallis (RMS): H=2.536, p=0.469
-Kategorien: person, person_text, person_politik, person_politik_text
