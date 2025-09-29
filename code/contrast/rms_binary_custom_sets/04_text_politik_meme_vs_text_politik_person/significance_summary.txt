@@ -1,2 +1,0 @@
-Kruskal–Wallis (RMS): H=3.167, p=0.0752
-Kategorien: meme_politik_text, person_politik_text
