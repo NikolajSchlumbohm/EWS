@@ -105,8 +105,9 @@ mit wissenschaftlicher Stringenz bei der Hypothesenprüfung und ermöglicht dami
 Interpretation der Eye-Tracking-Daten
 
 \section{Clustern}
-Die Clusteranalyse fasst die Fixations-Zusammenfassungen pro Bild zu Verhaltensarchetypen zusammen. Eine Kreuztabelle aus Clustern und Labels ordnet alle 152 annotierten Stimuli über drei Cluster hinweg und zeigt, wie Bilder den Lösungsraum füllen, der die weitere Interpretation steuert.
-Die Merkmalsvektoren kombinieren verschiedene Blickparameter: Fixationsdauern in frühen und späten Dritteln, mittlere und mediane Betrachtungszeiten, Scanpfadlängen, Blickstreuung über 68 \%- und 95 \%-Konfidenzellipsen, Fixationsanzahlen pro Teilnehmer, mittlere Pupillengrö{\ss}e und gesamte Betrachtungszeit. So entsteht ein mehrdimensionales Profil für jedes Bild. 
+Die Clusteranalyse fasst die Fixations-Zusammenfassungen pro Bild zu Verhaltensarchetypen zusammen.
+Eine Kreuztabelle aus Clustern und Labels ordnet alle 152 annotierten Stimuli über drei Cluster hinweg und zeigt, 
+wie Bilder den Lösungsraum füllen, der die weitere Interpretation steuert.
 
 \begin{figure}[h]
     \centering
@@ -114,6 +115,10 @@ Die Merkmalsvektoren kombinieren verschiedene Blickparameter: Fixationsdauern in
     \caption{}
     \label{fig:cluster1}
 \end{figure}
+
+Die Merkmalsvektoren kombinieren verschiedene Blickparameter: Fixationsdauern in frühen und späten Dritteln, mittlere und mediane Betrachtungszeiten, Scanpfadlängen, Blickstreuung über 68 \%- und 95 \%-Konfidenzellipsen, Fixationsanzahlen pro Teilnehmer, mittlere Pupillengrö{\ss}e und gesamte Betrachtungszeit. So entsteht ein mehrdimensionales Profil für jedes Bild. 
+
+
  
 Um die optimale Anzahl an Clustern zu bestimmen, wurden sowohl das \textbf{Elbow}- als auch das \textbf{Silhouette}-Verfahren verwendet: Die Trägheit (Inertia) fiel deutlich von 983,8 auf 695,4 zwischen k=1 und k=3 und nahm danach nur noch langsam ab. Die Silhouette-Werte waren bei k=2 mit 0,437 am höchsten, blieben bei k=3 aber stabil bei 0,231. Auf Basis des Elbow-Kriteriums wurde daher k=3 gewählt, auch wenn die Cluster bei k=2 etwas homogener waren. \ref{fig:cluster1} zeigt beide Kurven nebeneinander und verdeutlicht die Entscheidungsgrundlage für drei Cluster.
 
@@ -217,16 +222,8 @@ Kombinationen mit Text längere Betrachtungsdauer aufweisen als der Konterpart o
 
 
 Diese Tatsache hing nach näherer Betrachtung allerdings im Wesentlichen von der Menge an Text ab,
-den die Probanden in der Regel sorgfältig lasen. Abb. \ref{fig:katMatrix} zeigt die Betrachtungsdauer der einzelnen 
+den die Probanden in der Regel sorgfältig lasen. Abbildung \ref{fig:katMatrix} zeigt die Betrachtungsdauer der einzelnen 
 Kategorien aufgeschlüsselt auf Text und keinen Text. 
-
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild3.png}
-    \caption{Jedes Feld zeigt die Kombination zweier Kategorien, mit dem Wert für "Text" linksoben und "Ohne Text" rechtsunten}\label{fig:katMatrix}
-\end{figure}
-
 
 Daher versuchten wir, den Einfluss der Textlänge herauszufiltern. Als erste Lösung bereinigten 
 wir die Betrachtungsdauer um die Anzahl der Wörter mit folgender Formel:
@@ -238,13 +235,6 @@ wir die Betrachtungsdauer um die Anzahl der Wörter mit folgender Formel:
 
 Die resultierenden relativen Betrachtungsdauern sind in Abbidlung \ref{fig:bild27} dargestellt, 
 wobei ein Vergleich mit Bildern ohne Text wegen fehlender Vergleichbarkeit au{\ss}en vor gelassen wurde.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild31.png}
-    \caption{Median der Betrachtungsdauer pro Gruppe}
-    \label{fig:bild27}
-\end{figure}
 
 Eine Möglichkeit, um den Einfluss jeder Kategorie auf die Betrachtungsdauer zu ermitteln, 
 ist die Regression. In unserem Fall lag eine Zensierung der Daten, also eine Beschränkung 
@@ -346,6 +336,11 @@ und zu Histogrammen (nach unterschiedlichen Bildkategorien) aggregiert.
 \end{figure}
 
 \subsection{Ergebnisse und mögliche Interpretation}
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{figures/Bild12.png}
+    \caption{Histogramme der Metriken aller Daten}\label{fig:Bild11}
+\end{figure*}
 Abbildung \ref{fig:Bild10a} und \ref{fig:Bild10b} dienen als Beispiel dafür, wie sich die Metriken ergeben. 
 Abbildung \ref{fig:Bild11} zeigt die Verteilung der Metriken als Histogramm. Auffällig ist 
 die hohe Anzahl an „Null-Werten“ bei \textit{determinism} und \textit{laminarity}. 
@@ -353,12 +348,6 @@ In der Korrelationsmatrix in Abbildung \ref{fig:Bild12} lässt sich erkennen, da
 Teil mit einer niedrigen \textit{recurrence} korrelieren (mehr dazu im Vergleich zwischen Bildkategorien nach Ort). 
 Denn: Je weniger sich Fixationen wiederholen, desto seltener wiederholen sich 
 Fixationssequenzen (\textit{determinism}) und desto seltener werden AOIs im Detail gescannt (\textit{laminarity}). 
-
-\begin{figure*}[ht]
-    \centering
-    \includegraphics[width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{figures/Bild12.png}
-    \caption{Histogramme der Metriken aller Daten}\label{fig:Bild11}
-\end{figure*}
 
 Hohe \textit{determinism} Werte können sich andererseits bspw. 
 aus dem wiederholten Lesen von Text ergeben (Abb. \ref{fig:Bild13a} und ref{fig:Bild13b}). 
@@ -409,6 +398,11 @@ was zu einem mittleren Überschuss von 0,234 über der Flächenbasislinie führt
 dieses Muster wider: Die Teilnehmer verbrachten 65,5 Prozent ihrer Verweildauer auf den Masken, 0,263 mehr als der 
 oberflächengewichtete Referenzwert. Selbst das untere Quartil der Teilnehmer verzeichnete Dichteverhältnisse von 
 mehr als eins, was die Konsistenz der Aufmerksamkeitsverzer-rung belegt.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild26.png}
+    \caption{Verteilung der Fixationsüberschüsse }\label{fig:bild21}
+\end{figure}
 
 \subsection{Ergebnisse}
 Abbildung \ref{fig:bild21} fasst die Verteilung der Fixationsüberschüsse zusammen. Das Histogramm liegt überwiegend rechts von Null, 
@@ -416,12 +410,6 @@ da 3.943 der 4.593 Versuche einen positiven Überschuss ergeben. Der lange recht
 in denen kompakte Personensegmente den Blick monopolisierten. Defizite, die in 650 Versuchen auftreten, 
 entstehen in der Regel, wenn Masken gro{\ss}e Hintergrundbereiche abdecken, die die Bereichsnormalisierung verwässern, 
 doch selbst in diesen Fällen wird den Personen immer noch beträchtliche absolute Aufmerksamkeit geschenkt.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Bild26.png}
-    \caption{Verteilung der Fixationsüberschüsse }\label{fig:bild21}
-\end{figure}
 
 Abbildung \ref{fig:bild22} stellt den Fixationsanteil gegenüber der Maskenabdeckung dar. Die meisten Punkte liegen über der Identitätslinie, 
 was zeigt, dass die Fixationsanteile über das gesamte Abdeckungsspektrum hinweg die Maskenflächen übersteigen. Masken, 
@@ -475,21 +463,6 @@ Figur \ref{fig:bild22a} zeigt eine zweidimensionale Darstellung der relativen Ä
 	\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/id008_overlay.jpg}
 	\caption{Aggregierte Heatmap des Bildes mit ID 008 }\label{fig:bildid008}
 \end{figure}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/id144_overlay.jpg}
-	\caption{Aggregierte Heatmap des Bildes mit ID  ID 144}\label{fig:bildid144}
-\end{figure}
-
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/id012_overlay.jpg}
-	\caption{Aggregierte Heatmap des Bildes mit ID 012}\label{fig:bildid012}
-\end{figure}
-
-
 
 \section{Text}
 
@@ -771,12 +744,19 @@ und trägt damit zu einem besseren Verständnis menschlicher Informationsverarbe
     \end{subfigure}\label{fig:Bild20}
     \caption{Vergleich der Histogramme mit Ort}
 \end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/id144_overlay.jpg}
+	\caption{Aggregierte Heatmap des Bildes mit ID 144}\label{fig:bildid144}
+\end{figure}
+
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/Dummy.jpg}
-    \caption{Fixationen-auf-Text Anteil/Text Anteil}\label{fig:bild26}
+	\centering
+	\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{figures/id012_overlay.jpg}
+	\caption{Aggregierte Heatmap des Bildes mit ID 012}\label{fig:bildid012}
 \end{figure}
+
 % ============================================================
 
 \end{document}
