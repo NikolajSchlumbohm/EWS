@@ -1,0 +1,23 @@
+{
+  "total_images": 152,
+  "unique_combinations": 12,
+  "base_labels": [
+    "meme",
+    "ort",
+    "person",
+    "politik",
+    "text"
+  ],
+  "most_common": {
+    "person": 47,
+    "ort": 16,
+    "meme text": 16,
+    "person politik": 13,
+    "person politik text": 12,
+    "meme politik text": 11,
+    "meme": 10,
+    "person text": 10,
+    "ort text": 9,
+    "politik text": 3
+  }
+}
