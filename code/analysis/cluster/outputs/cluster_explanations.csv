@@ -1,0 +1,4 @@
+cluster,top_positive_features,top_negative_features
+0,"pupil_mm_mean (+1.15), fix_dur_mean_first_third_ms (+1.14), fixation_duration_median_ms (+1.12)","fixation_density_entropy (-0.95), fixations_first_third_per_participant (-0.92), fixations_mean_per_participant (-0.87)"
+1,"view_time_mean_ms (+1.13), fixations_last_third_per_participant (+1.11), scanpath_length_mean_px (+1.10)","fix_dur_mean_last_third_ms (-0.93), fixation_duration_mean_ms (-0.87), fixation_duration_median_ms (-0.80)"
+2,"fixation_density_entropy (+-0.10), fix_dur_mean_last_third_ms (+-0.13), fixations_first_third_per_participant (+-0.14)","pupil_mm_mean (-0.58), fix_dur_mean_first_third_ms (-0.41), view_time_mean_ms (-0.35)"
