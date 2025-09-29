@@ -491,8 +491,8 @@
 \displaywidowpenalty=10000
 
 % Itemization formatting
-\setlist[itemize]{label={$-$}, labelindent=24pt,labelsep=18pt,leftmargin=*,topsep=0pt}
-\setlist[enumerate,1]{label={\arabic*.},align=left,labelindent=24pt,labelsep=18pt,leftmargin=*,topsep=0pt}
+\setlist[itemize]{label={$-$}, labelindent=16pt,labelsep=18pt,leftmargin=*,topsep=0pt}
+\setlist[enumerate,1]{label={\arabic*.},align=left,labelindent=16pt,labelsep=18pt,leftmargin=*,topsep=0pt}
 
 % Format of equation numbering
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
