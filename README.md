@@ -1,6 +1,6 @@
 # EWS
 Dieses Repo enthällt alle Ergebnisse des Projektseminars Eyes Wide Scroll an der Universität Münster. 
-Im laufe dieses Seminares haben wir eine Studie durchgeführt, in der wir mit einem Tobii Pro Spark Eye-Tracking Daten von Probanden gesammelt haben. Gezeigt wurden Bilder mit Verschiedenen Eigenschaften, die die Nutzer für 5 bis 15 Sekunden betrachten sollten. 
+Im Laufe dieses Seminares haben wir eine Studie durchgeführt, in der wir mit einem Tobii Pro Spark Eye-Tracking Daten von Probanden gesammelt haben. Gezeigt wurden Bilder mit Verschiedenen Eigenschaften, die die Nutzer für 5 bis 15 Sekunden betrachten sollten. 
 
 ## code
 Dieser Ordner enthällt jeglichen geschriebenen Code
