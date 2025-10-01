@@ -1,0 +1,443 @@
+[
+  {
+    "url": "https://www.stadt-muenster.de/fileadmin/user_upload/stadt-muenster/obm/pics/panorama/2022_10_26_Lewe_08ncc_.jpg",
+    "offset": {
+      "x": 523,
+      "y": 101
+    },
+    "size": 3305,
+    "cropped_file": "ctrl01_person_ncc_.jpg"
+  },
+  {
+    "url": "https://www.muensterland.com/site/assets/files/2550/prinzipalmarkt_muenster_muenstermarketing_dagmar_schwelle_01.960x960ncc_.jpg",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 946,
+    "cropped_file": "ctrl02_ort_ncc_.jpg"
+  },
+  {
+    "url": "https://img.freepik.com/vektoren-kostenlos/inspirierendes-zitat-auf-einem-aquarellhintergrund_1048-18831ncc_.jpg?semt=ais_hybrid&w=740",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 740,
+    "cropped_file": "ctrl03_text_ncc_.jpg"
+  },
+  {
+    "url": "https://image.stern.de/8156766/t/_K/v4/w1440/r1.3333/-/angela-merkel1ncc_.jpg",
+    "offset": {
+      "x": 163,
+      "y": 4
+    },
+    "size": 1063,
+    "cropped_file": "ctrl04_politik_person_ncc_.jpg"
+  },
+  {
+    "url": "https://stadterlebnisse.de/wp-content/uploads/2024/01/Alle-Events-in-Muensterncc_.jpg",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 600,
+    "cropped_file": "ctrl05_ort_ncc_.jpg"
+  },
+  {
+    "url": "https://th.bing.com/th/id/OIP.8yUvoqMDZiEUZXx1Sy1zpAHaJQ?rs=1&pid=ImgDetMain",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 470,
+    "cropped_file": "cropped_0.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/wrv7hbr0qd1f1.jpeg?width=640&crop=smart&auto=webp&s=99c0dc029cae8e8f3678aa825c663ba25638fa06",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 640,
+    "cropped_file": "cropped_1.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/qzsfc2w4vrge1.png?width=640&crop=smart&auto=webp&s=59cef917a2ec778f3443b53fc1aeaedc12508b20",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 630,
+    "cropped_file": "cropped_2.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/freut-mich-zu-h%C3%B6ren-v0-7jtbsx1brv2f1.png?auto=webp&s=b0f8a8cf49580016cfa331dc4d4ed88d912f4812",
+    "offset": {
+      "x": 13,
+      "y": 0
+    },
+    "size": 1056,
+    "cropped_file": "cropped_3.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/wouldnt-more-guns-make-it-safer-v0-drl3tslqxkae1.png?width=640&crop=smart&auto=webp&s=8c2617198df81984fabecf41f7c343d6f9ee9582",
+    "offset": {
+      "x": 9,
+      "y": 0
+    },
+    "size": 600,
+    "cropped_file": "cropped_4.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/the-numbers-dont-lie-v0-2ieoiwtop6we1.jpeg?auto=webp&s=bd13d8c4d67fa534e1e6089bd12179af03212feb",
+    "offset": {
+      "x": 31,
+      "y": 0
+    },
+    "size": 1004,
+    "cropped_file": "cropped_5.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/mtjgrqalbwo91.jpg?width=640&crop=smart&auto=webp&s=1744c73da66fb5316bccbaeea1b202742690721b",
+    "offset": {
+      "x": 17,
+      "y": 0
+    },
+    "size": 580,
+    "cropped_file": "cropped_6.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/klassischer-dienstag-abend-v0-v8pomy9g9ycc1.png?auto=webp&s=04516c810bd6af14bc2912db15254c693f3ae793",
+    "offset": {
+      "x": 29,
+      "y": 0
+    },
+    "size": 992,
+    "cropped_file": "cropped_7.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/zeta-gundam-would-have-turned-out-very-differently-v0-p7ger7sdt21f1.png?auto=webp&s=06d97f51b9eeab6c9d76b3c78d9614a08e118f81",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 810,
+    "cropped_file": "cropped_8.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/r85npawpfv2e1.jpeg?width=1080&crop=smart&auto=webp&s=0ab0c92eb3b5b749775befff728b0b0ef211c79c",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 1064,
+    "cropped_file": "cropped_9.jpg"
+  },
+  {
+    "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQniW4ITiyEBEhHt7lRliADAs_D9G56RGssyMEn0ML7a24rsJ3m",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 220,
+    "cropped_file": "cropped_10.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/sm9wrlse0goc1.png?width=1080&crop=smart&auto=webp&s=89d033972cd9834acd5537e024b711ac00f19e31",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 1080,
+    "cropped_file": "cropped_11.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/t5cl3ydsxqxd1.jpeg?width=1080&crop=smart&auto=webp&s=ae7c76502d2878479b9604c718deb1b6bb735c54",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 1049,
+    "cropped_file": "cropped_12.jpg"
+  },
+  {
+    "url": "https://scontent-fra3-1.cdninstagram.com/v/t51.29350-15/466597719_3881971732130845_3225213358442229604_n.jpg?stp=dst-jpg_e15_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InRocmVhZHMuRkVFRC5pbWFnZV91cmxnZW4uMTA4MHgxMDgwLnNkci5mMjkzNTAuZGVmYXVsdF9pbWFnZSJ9&_nc_ht=scontent-fra3-1.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2QGNatSpFaRkMUC9DItMK7PSByUU8JFiQlhV5Q_aIfg9BokxtknPwNg8G8yWjoFnLhg&_nc_ohc=DWRjZxZDlugQ7kNvwGg37FP&_nc_gid=68XMq73ZoYymUVOyiAY_tA&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MzUwMTAyNTc4NTA1NTIyNzQwMw%3D%3D.3-ccb7-5&oh=00_AfO9W0Lh3MQRIUETDDG1CsGcQGMFqWamO8pgzxqdnCufsg&oe=684E14DC&_nc_sid=10d13b",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 1080,
+    "cropped_file": "cropped_13.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/es-ist-mittwoch-meine-kerle-v0-vqonmeej2c7b1.jpg?auto=webp&s=e100a9787f60e7b410a77299eae3358e6789be6a",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 500,
+    "cropped_file": "cropped_14.jpg"
+  },
+  {
+    "url": "https://i.redd.it/316i68hamex51.jpg",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 1892,
+    "cropped_file": "cropped_15.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/zyuif6gcvvhd1.png?auto=webp&s=a0bd030ca4e5a64c0bedd4807dede13964aca8ac",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 410,
+    "cropped_file": "cropped_16.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/fgu16o7raii51.jpg?width=1080&crop=smart&auto=webp&s=2dccc1a6104c805a4a1bef21b689e12525e376ed",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 1080,
+    "cropped_file": "cropped_17.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/r8cegl3h5c2f1.jpeg?width=320&crop=smart&auto=webp&s=139a3165ab35b67809348cf0ae338bbcf872cd2d",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 320,
+    "cropped_file": "cropped_18.jpg"
+  },
+  {
+    "url": "https://files.mastodon.social/media_attachments/files/002/570/430/original/37e365f463301f09.jpeg",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 641,
+    "cropped_file": "cropped_19.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/ytpdi9ivqdm31.jpg?width=640&crop=smart&auto=webp&s=89997367637f59e28fcf7d82e07c00b518aa9440",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 630,
+    "cropped_file": "cropped_20.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/2fkohki8loi11.jpg?width=640&crop=smart&auto=webp&s=572cbfcf427870c76ebc88d723082666dc7a32a4",
+    "offset": {
+      "x": 23,
+      "y": 0
+    },
+    "size": 580,
+    "cropped_file": "cropped_21.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/o3fbtpkktc611.jpg?width=640&crop=smart&auto=webp&s=e7c817236a9b0f1717678e7ca9a7b111305020e7",
+    "offset": {
+      "x": 9,
+      "y": 42
+    },
+    "size": 631,
+    "cropped_file": "cropped_22.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/oy0ve07w6wgz.jpg?auto=webp&s=74fca0c8094c6cd6d7363c1370342ad3408413db",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 567,
+    "cropped_file": "cropped_23.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/2uwcqqtjxhkb1.jpg?auto=webp&s=4cd1e1c06ed7aa4666d34b513e7a60b321e1d06e",
+    "offset": {
+      "x": 4,
+      "y": 115
+    },
+    "size": 814,
+    "cropped_file": "cropped_24.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/fhyh9nv7vzge1.jpg?width=640&crop=smart&auto=webp&s=147ec1986545e961d18ac2b88ecfb2b891db4a56",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 640,
+    "cropped_file": "cropped_25.jpg"
+  },
+  {
+    "url": "https://i.pinimg.com/736x/12/ec/50/12ec50d8cc2699a335da24718019cf5e.jpg",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 714,
+    "cropped_file": "cropped_26.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/pay143t2m41a1.jpg?width=640&crop=smart&auto=webp&s=84fec7e4b733beaef88c0dd105d7dcb3af61e71e",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 638,
+    "cropped_file": "cropped_27.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/duljdv4s9p371.jpg?width=640&crop=smart&auto=webp&s=f62ddf4dd7dd5a473a55124d6374f02614791ada",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 640,
+    "cropped_file": "cropped_28.jpg"
+  },3
+  {
+    "url": "https://i.redd.it/8jdjnhlt1y791.jpg",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 1395,
+    "cropped_file": "cropped_29.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/4w9tgo0uxoqc1.jpeg?width=640&crop=smart&auto=webp&s=507a5cad2b71e4d3209e3a6f344da52b03c1bc0b",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 640,
+    "cropped_file": "cropped_30.jpg"
+  },
+  {
+    "url": "https://i.redd.it/3mazkwck3zv71.jpg",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 550,
+    "cropped_file": "cropped_31.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/3yt5v9pmjfue1.jpeg?auto=webp&s=b36d1b2b8a8c5e034076dc0d0d1d634f8e8ae223",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 1252,
+    "cropped_file": "cropped_32.jpg"
+  },
+  {
+    "url": "https://pbs.twimg.com/media/F_qLemSXIAA50Ni.jpg",
+    "offset": {
+      "x": 81,
+      "y": 17
+    },
+    "size": 600,
+    "cropped_file": "cropped_33.jpg"
+  },
+  {
+    "url": "https://64.media.tumblr.com/9650a7442a58c6bdc847b468144e1d45/tumblr_pg102fZrZf1vtwqhpo1_1280.png",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 1268,
+    "cropped_file": "cropped_34.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/4w3hfxoiv0q91.jpg?width=640&crop=smart&auto=webp&s=51dfcc64f44d6caebe7a620fc15c438724cb581c",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 630,
+    "cropped_file": "cropped_35.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/ttfhavjmd1x51.png?width=640&crop=smart&auto=webp&s=c3c8f85adf04b1eea109604729917cc39d7e3af7",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 630,
+    "cropped_file": "cropped_36.jpg"
+  },
+  {
+    "url": "https://images.bild.de/6848738e72dfcf2f6778e290/c1cee9842465677d576959444cae7656,42ed8231?w=656",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 650,
+    "cropped_file": "cropped_37.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/simon-auf-der-startseite-v0-ike0pmiz1ote1.png?auto=webp&s=297d9dcee1d71d5654fb6d3880d7f8dd8d17f59c",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 470,
+    "cropped_file": "cropped_38.jpg"
+  },
+  {
+    "url": "https://i.pinimg.com/originals/c3/4f/40/c34f409696f58ac75735c7fd3dab9e34.png",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 689,
+    "cropped_file": "cropped_39.jpg"
+  },
+  {
+    "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTHLNDnL6lbpLR_GaN7Nh4Mh0ylnJ2S6U1xA&s",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 230,
+    "cropped_file": "cropped_40.jpg"
+  },
+  {
+    "url": "https://preview.redd.it/l5wvxperrh1f1.jpeg?width=1080&crop=smart&auto=webp&s=8bd7bbfd6cd765b9614d6a8c2448a1423a6021bd",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 1076,
+    "cropped_file": "cropped_41.jpg"
+  },
+  {
+    "url": "https://ichef.bbci.co.uk/images/ic/1024x576/p0kkzpkv.jpg",
+    "offset": {
+      "x": 220,
+      "y": 9
+    },
+    "size": 563,
+    "cropped_file": "cropped_42.jpg"
+  },
+  {
+    "url": "https://images.handelsblatt.com/Bn6pZHMaZOpy/cover/1484/1484/258/258/0/0/0.5/0.5/wolodimir-selenski.jpeg",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "size": 1462,
+    "cropped_file": "cropped_43.jpg"
+  }
+]
